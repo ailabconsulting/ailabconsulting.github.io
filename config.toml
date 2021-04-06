@@ -1,0 +1,121 @@
+# Site settings
+baseurl = "/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+title = "AI Lab Consulting"
+theme = "syna"
+themesDir = "./themes"
+enableGitInfo = true
+version = "0.17.4"
+disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+ignorefiles = [ "content/dev/.*" ]
+
+# Google Analytics tracking
+googleAnalytics = ""
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[frontmatter]
+  date = ["date", "lastmod"]
+  lastmod = ["lastmod", ":git", "date"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+     unsafe = true
+
+[params]
+  name = "AI Lab Consulting - AI Powerhouse"
+  description = "AILabConsulting.com provides AI-based end-to-end solutions for your business"
+  debug = true
+  unsafeEvents = true # Default is false. Enables ?event=type format of url events.
+
+  [params.style]
+    #background = "secondary"
+
+  # Theme customizations
+  # Assets relative to 'static/'
+  [params.custom]
+    favicon = "favicon.ico"
+    favicon_ico_sizes = "16x16 32x32"
+    favicon_png = "favicon.png"
+    favicon_svg = "favicon.svg"
+
+  # Piwik tracking
+  [params.analytics.piwik]
+    #url = "https://use.example.net"
+    #id = ""
+    #domain = "*" # Track subdomains via "*.example.com"
+    # Optional hash for integrity check
+    #hash = "sha512-RfeD0pacGTqy9m7U6PgehQfS4cc7SIt+e+P+H5e848kEvB/RW84CUGO3O4O3LNbxjevym6KPUZ8muPsMrI8WIw=="
+
+  # Optional, global disable switch for fontawesome related files
+  # For custom fontawesome js files use the custom.js method
+  [params.fontawesome]
+    disabled = false
+    pro = false
+
+  [params.colors]
+    primary = "#2B60DE"
+    secondary = "#868e96"
+    success = "#008f54"
+    info = "#00c9dc"
+    warning = "#fdf314"
+    danger = "#dc1200"
+    light = "#f8f9fa"
+    dark = "#343a40"
+    white = "#ffffff"
+    grey = "#ffffff"
+
+# main/prepend/postpend menus are displayed in nav fragment.
+# footer/footer_social menus are displayed in footer fragment.
+# copyright_footer menus are displayed in copyright fragment
+# Keep an eye out for updates. These will be moved out to make navbar more
+# configurable.
+[[menu.main]]
+  url = "/"
+  name = "Home"
+  weight = 10
+
+[[menu.main]]
+  url = "/services"
+  name = "Services"
+  weight = 20
+
+[[menu.main]]
+  url = "/process"
+  name = "Process"
+  weight = 30
+
+[[menu.main]]
+  url = "/about"
+  name = "About Us"
+  weight = 40
+
+[[menu.main]]
+  url = "/Contact"
+  name = "Contact"
+  weight = 50
+
+[[menu.footer]]
+  url = "http://ailabconsulting.com"
+  name = "Getting Started"
+  weight = 10
+
+[[menu.footer]]
+  url = "http://ailabconsulting.com/about"
+  name = "About AI Lab Consulting"
+  weight = 20
+
+[[menu.footer_social]]
+  weight = 30
+  name = "github"
+  url = "http://ailabconsulting.com"
+  pre = "fab fa-github fa-stack-2x"
+
+[[menu.copyright_footer]]
+  url = "/about"
+  name = "About Us"
+  weight = 10
+theme = "syna"
