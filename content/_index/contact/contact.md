@@ -47,9 +47,6 @@ button_text = "Send" # defaults to theme default
 [[fields.hidden]]
   name = "page"
 
-[[fields.hidden]]
-  name = "someID"
-  value = "example.com"
 
 +++
 
