@@ -12,7 +12,7 @@ title = "We want to hear from you"
 
 # PostURL can be used with backends such as formspree, or mailout from caddy
 post_url = "https://getform.io/f/f31fe965-e20a-4528-bc75-9ecceccf8853"
-email = "info@ailabconsulting.com"
+email = "contact@ailabconsulting.com"
 button_text = "Send" # defaults to theme default
 #netlify = false
 
@@ -46,7 +46,6 @@ button_text = "Send" # defaults to theme default
 # Fields "page" and "site" will be autofilled
 [[fields.hidden]]
   name = "page"
-
 
 +++
 
