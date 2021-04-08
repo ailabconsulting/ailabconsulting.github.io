@@ -1,11 +1,9 @@
 +++
 weight = 30
-title = "Quality Control"
-subtitle = "Detect and target customers with highest lifetime value."
+title = "Fraud Detection"
+subtitle = "Fraud analysis and unusual behavior pattern recognition with real-time alerts."
 
 
 [asset]
-  icon = "fas fa-funnel-dollar"
+    icon = "fas fa-user-secret"
 +++
-
-Ante in nibh mauris cursus mattis molestie a iaculis. Nisi porta lorem mollis aliquam. Eu consequat ac felis donec et odio pellentesque diam volutpat. Arcu dui vivamus arcu felis. Senectus et netus et malesuada fames ac turpis egestas sed. Orci eu lobortis elementum nibh.

@@ -29,27 +29,7 @@
     <div id="{{ printf "%s-particles-js" .Name }}" class="hero-particles particles-js"></div>
   {{- end -}}
   {{- if .Params.asset -}}
-    {{- with .Params.asset }}
-      <div class="hero-image-container row justify-content-center align-items-start">
-        <img
-          class="hero-image overlay img-fluid"
-          src="{{ partial "helpers/image.html" (dict "root" $self "asset" .) }}"
-          alt="
-            {{- if .text -}}
-              {{- print .text -}}
-            {{- else if $.Params.title_page -}}
-              {{- print $.root.Title -}}
-            {{- else -}}
-              {{- print $.Params.title -}}
-            {{- end -}}
-          "
-          style="
-            {{- if .height }}height: {{ .height }} !important;{{- end -}}
-            {{- if .width }}width: {{ .width }} !important;{{- end -}}
-          "
-        ></img>
-      </div>
-    {{- end }}
+
     {{- with .Params.subtitle }}
       <div class="hero-subtitle-container row justify-content-center align-items-start">
         <h1 class="hero-subtitle overlay jumbotron-heading my-4

@@ -6,7 +6,8 @@ weight = 50
 background = "dark" # can influence the text color
 particles = true
 
-title = "AI Lab Consulting: AI-Powered Solutions for Industries"
+
+title = ""
 subtitle = "AI-Powered Solutions for Industries"
 
 [header]

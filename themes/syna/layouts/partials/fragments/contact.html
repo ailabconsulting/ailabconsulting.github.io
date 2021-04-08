@@ -165,11 +165,9 @@
                       {{- printf " btn-%s" "primary" -}}
                     {{- end -}}
                   "
-                  type="submit">
+                  type="submit" style="min-width:200px">
                   {{- .Params.button_text | default (i18n "contact.defaultButton") }}
                 </button>
-                <div> I agree to allow ailabconsulting.com to process my personal data for the communication
-                  purposes only relating to the services offered by ailabconsulting.com</div>
               {{- end }}
             </div>
           </div>

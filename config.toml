@@ -2,7 +2,7 @@
 baseurl = "/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "AI Lab Consulting"
+title = "AI Lab Consulting LLC"
 theme = "syna"
 themesDir = "./themes"
 enableGitInfo = true
@@ -58,15 +58,14 @@ googleAnalytics = ""
 
   [params.colors]
     primary = "#2B60DE"
-    secondary = "#868e96"
+    secondary = "#A9A9A9"
     success = "#008f54"
     info = "#00c9dc"
     warning = "#fdf314"
     danger = "#dc1200"
     light = "#f8f9fa"
     dark = "#343a40"
-    white = "#ffffff"
-    grey = "#ffffff"
+
 
 # main/prepend/postpend menus are displayed in nav fragment.
 # footer/footer_social menus are displayed in footer fragment.
@@ -78,44 +77,19 @@ googleAnalytics = ""
   name = "Home"
   weight = 10
 
-[[menu.main]]
-  url = "/services"
-  name = "Services"
-  weight = 20
-
-[[menu.main]]
-  url = "/process"
-  name = "Process"
-  weight = 30
 
 [[menu.main]]
   url = "/about"
   name = "About Us"
-  weight = 40
-
-[[menu.main]]
-  url = "/Contact"
-  name = "Contact"
-  weight = 50
-
-[[menu.footer]]
-  url = "http://ailabconsulting.com"
-  name = "Getting Started"
-  weight = 10
-
-[[menu.footer]]
-  url = "http://ailabconsulting.com/about"
-  name = "About AI Lab Consulting"
   weight = 20
 
-[[menu.footer_social]]
-  weight = 30
-  name = "github"
-  url = "http://ailabconsulting.com"
-  pre = "fab fa-github fa-stack-2x"
+[[menu.main]]
+    url = "/about"
+    name = "Contact"
+    weight = 30
+
 
 [[menu.copyright_footer]]
   url = "/about"
   name = "About Us"
   weight = 10
-theme = "syna"

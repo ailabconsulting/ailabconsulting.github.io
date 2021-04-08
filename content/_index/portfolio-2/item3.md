@@ -1,11 +1,9 @@
 +++
 weight = 30
 title = "Quality Control"
-subtitle = "Detect and target customers with highest lifetime value."
+subtitle = "Detect incorrect labels, products surface defects, shapes, items orientation."
 
 
 [asset]
-  icon = "fas fa-funnel-dollar"
+  icon = "fas fa-tags"
 +++
-
-Ante in nibh mauris cursus mattis molestie a iaculis. Nisi porta lorem mollis aliquam. Eu consequat ac felis donec et odio pellentesque diam volutpat. Arcu dui vivamus arcu felis. Senectus et netus et malesuada fames ac turpis egestas sed. Orci eu lobortis elementum nibh.

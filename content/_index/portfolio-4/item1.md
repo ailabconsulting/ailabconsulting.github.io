@@ -1,11 +1,9 @@
 +++
 weight = 10
-title = "Predictive Maintenance"
-subtitle = "Forecast potential equipment failures to prevent breakdowns and downtime"
+title = "Anomaly Detection"
+subtitle = "Detect anomalous user or system behavior real time. "
 item_url = "#"
 
 [asset]
-    icon = "fas fa-tools"
+    icon = "fas fa-chart-area"
 +++
-
-Ante in nibh mauris cursus mattis molestie a iaculis. Nisi porta lorem mollis aliquam. Eu consequat ac felis donec et odio pellentesque diam volutpat. Arcu dui vivamus arcu felis. Senectus et netus et malesuada fames ac turpis egestas sed. Orci eu lobortis elementum nibh.
