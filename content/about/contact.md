@@ -12,14 +12,14 @@ title = "We want to hear from you"
 
 # PostURL can be used with backends such as formspree, or mailout from caddy
 post_url = "https://getform.io/f/f31fe965-e20a-4528-bc75-9ecceccf8853"
-email = "info@ailabconsulting.com"
+email = "contact@ailabconsulting.com"
 button_text = "Send" # defaults to theme default
 #netlify = false
 
 # Optional google captcha
 # Won't be used if netlify is enabled
-[recaptcha]
-sitekey = "6LdA3SAUAAAAAEqt0W-2dz0rs0Z-c5BIHCCfGa8J"
+#[recaptcha]
+#sitekey = "6LdA3SAUAAAAAEqt0W-2dz0rs0Z-c5BIHCCfGa8J"
 
 [message]
   success = "Thank you for awesomely contacting us." # defaults to theme default
