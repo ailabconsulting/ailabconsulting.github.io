@@ -13,8 +13,6 @@ ignorefiles = [ "content/dev/.*" ]
 # Google Analytics tracking
 googleAnalytics = "UA-197538615-1"
 
-</script>
-
 [outputs]
   home = ["HTML", "JSON"]
 
