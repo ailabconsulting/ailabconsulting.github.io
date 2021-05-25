@@ -19,7 +19,7 @@ netlify = false
 # Optional google captcha
 # Won't be used if netlify is enabled
 [recaptcha]
-sitekey = "6LdA3SAUAAAAAEqt0W-2dz0rs0Z-c5BIHCCfGa8J"
+sitekey = "6LdA3SAUAAAAAANOOjrKcSAKxmezduwWtKV4PnTe"
 
 [message]
   success = "Thank you for awesomely contacting us." # defaults to theme default
