@@ -2,7 +2,7 @@
 baseurl = "/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
-title = "AI Lab Consulting LLC"
+title = "AI Lab Consulting"
 theme = "syna"
 themesDir = "./themes"
 enableGitInfo = true
