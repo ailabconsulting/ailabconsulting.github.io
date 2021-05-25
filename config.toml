@@ -63,8 +63,8 @@ googleAnalytics = "UA-197538615-1"
     info = "#00c9dc"
     warning = "#fdf314"
     danger = "#dc1200"
-    light = "#f8f9fa"
-    dark = "#343a40"
+    light = "#191970"
+    dark = "#191970"
 
 
 # main/prepend/postpend menus are displayed in nav fragment.
