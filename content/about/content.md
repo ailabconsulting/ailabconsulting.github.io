@@ -11,7 +11,7 @@ title = "About Us"
 
 
 
-**AI Lab Consulting, LLC<p/> Email: <a href="mailto:contact@ailabconsulting.com">contact@ailabconsulting.com</a><p/> Phone: (650) 429-8850<br/> Address: 1968 S. Coast Hwy #119<br/> Laguna Beach CA 92651 <br/> 94043**
+**AI Lab Consulting, LLC<p/> Email: <a href="mailto:contact@ailabconsulting.com">contact@ailabconsulting.com</a><p/> Phone: (650) 429-8850<p/> Address: 1968 S. Coast Hwy #119<br/> Laguna Beach CA 92651 <br/> 94043**
 
 ---
 

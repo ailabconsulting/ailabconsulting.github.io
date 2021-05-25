@@ -16,7 +16,7 @@ subtitle = "AI-Powered Solutions for Industries"
 [asset]
   image = "logo.svg"
   width = "500px" # optional - will default to image width
-  #height = "150px" # optional - will default to image height
+  height = "150px" # optional - will default to image height
 
 [[buttons]]
   text = "Use Cases"
@@ -26,7 +26,7 @@ subtitle = "AI-Powered Solutions for Industries"
 [[buttons]]
   text = "Contact Us"
   url = "#contact"
-  color = "primary"
+  color = "dark"
 
 [[buttons]]
   text = "Process"

@@ -23,7 +23,7 @@ sitekey = "6LdA3SAUAAAAAEqt0W-2dz0rs0Z-c5BIHCCfGa8J"
 
 [message]
   success = "Thank you for awesomely contacting us." # defaults to theme default
-  error = "Message could not be send. Please contact us at mail@example.com instead." # defaults to theme default
+  error = "Message could not be send. Please contact us at contact@ailabconsulting.com instead." # defaults to theme default
 
 # Only defined fields are shown in contact form
 [fields.name]
