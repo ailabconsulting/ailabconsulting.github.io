@@ -57,7 +57,7 @@ googleAnalytics = "UA-197538615-1"
     pro = false
 
   [params.colors]
-    primary = "#2B60DE"
+    primary = "#00838f"
     secondary = "#A9A9A9"
     success = "#008f54"
     info = "#00c9dc"
