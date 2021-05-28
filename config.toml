@@ -13,6 +13,11 @@ ignorefiles = [ "content/dev/.*" ]
 # Google Analytics tracking
 googleAnalytics = "UA-197538615-1"
 
+[sitemap]
+  changefreq = "daily"
+  filename = "sitemap.xml"
+  priority = 0.5
+
 [outputs]
   home = ["HTML", "JSON"]
 
