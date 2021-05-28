@@ -18,8 +18,8 @@ button_text = "Send" # defaults to theme default
 
 # Optional google captcha
 # Won't be used if netlify is enabled
-[recaptcha]
-sitekey = "6LcoD-8aAAAAAHGMvGRhL-pi9DP-iW9IymR6N-qE"
+#[recaptcha]
+#sitekey = "6LcoD-8aAAAAAHGMvGRhL-pi9DP-iW9IymR6N-qE"
 
 [message]
   success = "Thank you for awesomely contacting us." # defaults to theme default
