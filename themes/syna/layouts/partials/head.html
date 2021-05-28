@@ -6,12 +6,6 @@
   {{- $.Scratch.Set "page_description" (.Params.summary | default .Summary) -}}
 {{- end -}}
 <head>
-  <meta name="theme" content="Syna">
-  <meta name="theme-version" content="v0.17.4">
-  <meta name="theme-url" content="https://syna.okkur.org">
-  <meta name="theme-description" content="Highly customizable open source theme for Hugo based static websites">
-  <meta name="theme-author" content="Okkur Labs">
-  <meta name="theme-author-url" content="https://about.okkur.org">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="google" content="notranslate" />
@@ -40,8 +34,6 @@
     <meta name="twitter:image" content="{{ $.Site.Params.image }}">
   {{- end }}
   {{ with .Site.Params.name -}}<meta name="author" content="{{ . }}">{{- end }}
-
-  {{ hugo.Generator }}
 
   <title>
     {{- $title | safeHTML -}}

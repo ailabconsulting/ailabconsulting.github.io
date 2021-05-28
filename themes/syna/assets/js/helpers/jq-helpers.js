@@ -147,8 +147,8 @@ $.ajax = function ajax({
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4) {
         if (xhr.status == 200) {
-          alert(xhr.getResponseHeader("content-type"));
-          resolve(JSON.parse(xhr.responseXML || xhr.responseText));
+          alert("Sucess!");
+          //resolve(JSON.parse(xhr.responseXML || xhr.responseText));
         } else {
           reject(xhr.statusText);
         }

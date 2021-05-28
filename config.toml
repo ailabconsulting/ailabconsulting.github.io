@@ -57,14 +57,15 @@ googleAnalytics = "UA-197538615-1"
     pro = false
 
   [params.colors]
-    primary = "#191970"
+    primary = "#888888"
     secondary = "#191970"
     success = "#008f54"
-    info = "#00c9dc"
+    info = "#dadada"
     warning = "#fdf314"
     danger = "#dc1200"
     light = "#f8f9fa"
     dark = "#343a40"
+    bridge="#cdcdcd"
 
 
 # main/prepend/postpend menus are displayed in nav fragment.

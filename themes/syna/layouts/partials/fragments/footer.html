@@ -12,7 +12,7 @@
         </h4>
         {{- if .image }}
         <a href="{{ .url }}">
-          <img src="{{ partial "helpers/image.html" (dict "root" $self "asset" . "resize" "220x100") }}" class="img-fluid w-50" alt="{{ .text }}">
+          <img src="{{ partial "helpers/image.html" (dict "root" $self "asset" . "resize" "220x100") }}" class="img-fluid" alt="{{ .text }}">
         </a>
         {{- else }}
         <div>
@@ -24,29 +24,7 @@
       {{- end -}}
 
     </div>
-    <div class="col-md m-2
-      {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "secondary") -}}
-    ">
-      {{- with .Params.menu_title }}
-        <h4>
-          {{- . -}}
-        </h4>
-      {{- end -}}
-      {{- if .Site.Menus.footer }}
-        <ul class="nav flex-column">
-            {{- range sort .Site.Menus.footer }}
-              <li class="nav-item">
-                <a class="nav-link p-0 display-5" href="{{ .URL | relLangURL }}"
-                  {{- if hasPrefix .URL "#" }}
-                    class="anchor"
-                  {{- end -}}>
-                  {{- .Name -}}
-                </a>
-              </li>
-            {{- end }}
-        </ul>
-      {{- end }}
-    </div>
+
     <div class="col-md m-2
       {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "secondary") -}}
     ">
@@ -55,6 +33,30 @@
           {{- . -}}
         </div>
       {{- end }}
+    </div>
+
+    <div class="col-md m-2
+          {{- partial "helpers/text-color.html" (dict "self" $self.self "light" "secondary") -}}
+    ">
+    {{- with .Params.menu_title }}
+    <h4>
+        {{- . -}}
+    </h4>
+    {{- end -}}
+    {{- if .Site.Menus.footer }}
+    <ul class="nav flex-column">
+        {{- range sort .Site.Menus.footer }}
+        <li class="nav-item">
+            <a class="nav-link p-0 display-5" href="{{ .URL | relLangURL }}"
+               {{- if hasPrefix .URL "#" }}
+            class="anchor"
+            {{- end -}}>
+            {{- .Name -}}
+            </a>
+        </li>
+        {{- end }}
+    </ul>
+    {{- end }}
     </div>
   </div>
 {{- partial "helpers/container.html" (dict "end" true "in_slot" .in_slot) -}}

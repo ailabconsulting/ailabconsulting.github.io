@@ -14,7 +14,7 @@ title = "We want to hear from you"
 post_url = "https://getform.io/f/f31fe965-e20a-4528-bc75-9ecceccf8853"
 email = "contact@ailabconsulting.com"
 button_text = "Send" # defaults to theme default
-netlify = false
+#netlify = false
 
 # Optional google captcha
 # Won't be used if netlify is enabled
@@ -23,7 +23,7 @@ sitekey = "6LcoD-8aAAAAAHGMvGRhL-pi9DP-iW9IymR6N-qE"
 
 [message]
   success = "Thank you for awesomely contacting us." # defaults to theme default
-  error = "Message could not be send. Please contact us at contact@ailabconsulting.com instead." # defaults to theme default
+  error = " Message could not be send. Please contact us at contact@ailabconsulting.com instead." # defaults to theme default
 
 # Only defined fields are shown in contact form
 [fields.name]

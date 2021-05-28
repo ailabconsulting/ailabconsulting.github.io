@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'dev-jq-helpers': './assets/js/helpers/jq-helpers.js',
     head: './assets/js/head.js',
     main: './assets/js/index.js',
     collapse: './assets/js/collapse.js',
@@ -14,7 +13,8 @@ module.exports = {
     pricing: './assets/js/pricing.js',
     react: './assets/js/react.js',
     search: './assets/js/search.js',
-    stripe: './assets/js/stripe.js'
+    stripe: './assets/js/stripe.js',
+    'dev-jq-helpers': './assets/js/helpers/jq-helpers.js'
 
   },
   output: {

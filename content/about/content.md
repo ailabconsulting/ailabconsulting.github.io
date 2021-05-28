@@ -15,5 +15,5 @@ title = "About Us"
 
 ---
 
-<p> AI Lab Consulting LLC is a specialized consultancy providing services in the areas of artificial intelligence, machine learning, and deep learning solutions.
+<p> AI Lab Consulting is a specialized consultancy providing services in the areas of artificial intelligence, machine learning, and deep learning solutions.
 </p> We focus on the development and rapid deployment of these technologies across different industries.

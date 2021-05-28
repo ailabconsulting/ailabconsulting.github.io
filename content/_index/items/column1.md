@@ -6,4 +6,4 @@ weight = 10
   icon = "fas fa-handshake"
 +++
 
-Free evaluation of a potential AI value for your business and initial data investigation. <br/> 10 hours
+We will evaluate a potential AI value for your business and perform an initial data investigation. <br/> 10 hours
