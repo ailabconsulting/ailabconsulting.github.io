@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'dev-jq-helpers': './static/scripts/dev-jq-helpers.js',
     counter: './static-main/js/counter.js',
   },
   output: {
