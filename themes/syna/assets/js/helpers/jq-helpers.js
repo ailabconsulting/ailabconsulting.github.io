@@ -101,7 +101,8 @@ function $(selector) {
     submit: () => nodes.forEach((node) => node.submit()),
     serialize: (json = false) => {
       if (nodes.length > 1) {
-        throw new Error("Can't serialize multiple forms at once");
+        //throw new Error("Can't serialize multiple forms at once");
+        return
       }
 
       if (json) {
