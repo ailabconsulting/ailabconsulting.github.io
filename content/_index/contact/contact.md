@@ -14,7 +14,7 @@ title = "We want to hear from you"
 post_url = "https://getform.io/f/f31fe965-e20a-4528-bc75-9ecceccf8853"
 email = "contact@ailabconsulting.com"
 button_text = "Send" # defaults to theme default
-#netlify = false
+netlify = false
 
 # Optional google captcha
 # Won't be used if netlify is enabled
