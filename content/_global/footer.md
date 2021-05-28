@@ -12,7 +12,7 @@ background = "info"
   text = "AI Lab Consulting"
 +++
 
-#### Contact
+#### Contact Infomation
 
 Email: <a href="mailto:contact@ailabconsulting.com">contact@ailabconsulting.com</a><p/>  1968 S. Coast Hwy #119<br/> Laguna Beach CA 92651 <br/> 94043 <p/> Phone: (650) 429-8850
 
