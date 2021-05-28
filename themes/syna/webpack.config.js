@@ -20,14 +20,15 @@ module.exports = {
   output: {
     path: path.resolve('./'),
     filename: (pathData) => {
-      return pathData.chunk.name.indexOf('dev') === 0 ? 'exampleSite/static/scripts/[name].js': 'assets/scripts/syna-[id].js';
+      return 'assets/scripts/syna-[id].js';
     },
   },
   resolve: {
     extensions: ['.js', '.jsx'],
     modules: [path.join(process.cwd(), 'src'), 'node_modules'],
   },
-  mode: process.env === 'production' ? 'production' : 'development',
+  //mode: process.env === 'production' ? 'production' : 'development',
+  mode:'development',
   module: {
     rules: [{
       test: /\.jsx?$/,

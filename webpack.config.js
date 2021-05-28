@@ -14,7 +14,7 @@ module.exports = {
   },
 
   //mode: process.env === 'production' ? 'production' : 'development',
-  mode: 'production',
+  mode: 'development',
   module: {
     rules: [{
       test: /\.js$/,

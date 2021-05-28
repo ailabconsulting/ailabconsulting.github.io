@@ -148,8 +148,11 @@ $.ajax = function ajax({
     xhr.onreadystatechange = () => {
       if (xhr.readyState == 4) {
         if (xhr.status == 200) {
-          alert("Sucess!");
-          //resolve(JSON.parse(xhr.responseXML || xhr.responseText));
+          if (xhr.getResponseHeader("content-type") == "text/html; charset=UTF-8") {
+            resolve();
+          } else {
+            resolve(JSON.parse(xhr.responseXML || xhr.responseText));
+          }
         } else {
           reject(xhr.statusText);
         }
@@ -158,10 +161,18 @@ $.ajax = function ajax({
   });
 };
 
+function popup(url, windowName) {
+  var newwindow=window.open(url,windowName,'height=200,width=150');
+  if (window.focus) {newwindow.focus()}
+  return false;
+}
+
 $.post = (url, data, options) => $.ajax({ method: 'post', url, data, options });
 
 if (window && window.testingMode) {
   window.jqHelpers = $
 }
+
+
 
 export default $;
