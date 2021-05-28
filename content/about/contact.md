@@ -1,10 +1,10 @@
 +++
-fragment = "contact_about"
+fragment = "contact"
 #disabled = true
 date = "2017-09-10"
 weight = 200
 background = "dark"
-form_name = "contact"
+form_name = "contact_about"
 
 title = "We want to hear from you"
 #subtitle  = "Fill out this form and we will get in touch shortly"
