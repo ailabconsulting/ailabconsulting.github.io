@@ -2,19 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    head: './assets/js/head.js',
-    main: './assets/js/index.js',
-    collapse: './assets/js/collapse.js',
-    contact: './assets/js/contact.js',
-    content: './assets/js/content.js',
-    graph: './assets/js/graph.js',
-    hero: './assets/js/hero.js',
-    portfolio: './assets/js/portfolio.js',
-    pricing: './assets/js/pricing.js',
-    react: './assets/js/react.js',
-    search: './assets/js/search.js',
-    stripe: './assets/js/stripe.js',
-    //'dev-jq-helpers': './assets/js/helpers/jq-helpers.js',
+    'dev-jq-helpers': './static/scripts/dev-jq-helpers.js',
     counter: './static-main/js/counter.js',
   },
   output: {
@@ -23,9 +11,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [path.join(process.cwd(), 'src'), 'node_modules'],
+    modules: [path.join(process.cwd(), 'src'), 'node_modules']
   },
-  mode: process.env === 'production' ? 'production' : 'development',
+
+  //mode: process.env === 'production' ? 'production' : 'development',
+  mode: 'production',
   module: {
     rules: [{
       test: /\.js$/,
@@ -33,7 +23,7 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/env', '@babel/react'],
+          presets: ['"@babel/preset-env"'],
         },
       },
     }],

@@ -26,9 +26,9 @@ googleAnalytics = "UA-197538615-1"
      unsafe = true
 
 [params]
-  name = "AI Lab Consulting - AI Powerhouse"
+  name = "AI Lab Consulting - AI solutions for your business"
   description = "AILabConsulting.com provides AI-based end-to-end solutions for your business"
-  debug = true
+  debug = false
   unsafeEvents = true # Default is false. Enables ?event=type format of url events.
 
   [params.style]
