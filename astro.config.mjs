@@ -9,6 +9,17 @@ export default defineConfig({
   build: { inlineStylesheets: 'always' },
   // Straight quotes everywhere: Markdown and .astro copy should match.
   markdown: { smartypants: false },
+  // Pages merged or removed when the site was simplified; keep old links working.
+  redirects: {
+    '/process/': '/#how',
+    '/industries/': '/',
+    '/industries/financial-services/': '/',
+    '/industries/manufacturing/': '/',
+    '/industries/retail/': '/',
+    '/services/context-engineering/': '/services/agent-authorization/',
+    '/services/adversarial-review/': '/services/ai-assisted-sdlc/',
+    '/services/ai-engineering/': '/services/',
+  },
   integrations: [sitemap()],
   fonts: [
     {

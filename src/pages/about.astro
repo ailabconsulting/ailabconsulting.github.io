@@ -1,87 +1,28 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import ServiceIndex from '../components/ServiceIndex.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { site } from '../data/site';
 
-const services = (await getCollection('services', (s) => s.data.core !== false)).sort((a, b) => a.data.order - b.data.order);
-
 const description =
-  'About AI Lab Consulting, an AI governance consultancy for regulated financial services, based in Laguna Beach, California.';
-
-const beliefs = [
-  {
-    title: 'Authority stays with people',
-    text: 'AI can draft, recommend and act. For actions with consequences, a named person still approves, and the systems we build record that approval.',
-  },
-  {
-    title: 'Design for the evidence',
-    text: 'Regulators and auditors increasingly ask to see controls working. We start from the evidence they will ask for and design backwards.',
-  },
-  {
-    title: 'Controls engineers will use',
-    text: 'A control that slows every release gets worked around. We build controls into platforms and pipelines so that the compliant path is also the quick one.',
-  },
-  {
-    title: 'Leave you able to run it',
-    text: 'We document what we build and train your team to operate and extend it.',
-  },
-];
+  'AI Lab Consulting is a small senior team in Laguna Beach, California, helping regulated financial firms run AI agents they can account for.';
 ---
 
-<BaseLayout
-  title="About us"
-  {description}
-  type="AboutPage"
-  crumbs={[{ name: 'About', href: '/about/' }]}
->
+<BaseLayout title="About us" {description} type="AboutPage" crumbs={[{ name: 'About', href: '/about/' }]}>
   <PageHeader
     eyebrow="About"
-    title="An AI governance consultancy for regulated finance"
-    lede="AI Lab Consulting helps banks, credit unions, insurers, fintechs and payment companies govern the AI agents they run. We concentrate on the part examiners ask about: being able to show what an agent did and who approved it."
+    title="About us"
+    lede="A small senior team helping regulated financial firms run AI agents they can account for."
   />
 
   <section class="section">
     <div class="container split">
-      <div class="split-aside">
-        <p class="eyebrow">What we believe</p>
-      </div>
-      <ol class="beliefs">
-        {
-          beliefs.map((b, i) => (
-            <li>
-              <span class="num">{String(i + 1).padStart(2, '0')}</span>
-              <div>
-                <h2>{b.title}</h2>
-                <p>{b.text}</p>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
-  <section class="section section--sunk" aria-labelledby="services-title">
-    <div class="container">
-      <p class="eyebrow">What we do</p>
-      <h2 id="services-title" class="h">Services</h2>
-      <ServiceIndex {services} />
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="where-title">
-    <div class="container split">
-      <div class="split-aside">
-        <p class="eyebrow">Where we are</p>
-        <h2 id="where-title" class="h">Laguna Beach, California</h2>
-      </div>
-      <div class="where">
-        <p class="lede">
-          We are based in Laguna Beach, California, and work with client teams remotely. The quickest way to reach us is
-          email.
+      <h2 class="h">Background</h2>
+      <div class="text">
+        <p>
+          We come from enterprise architecture and compliance work in regulated finance: identity and access, platform
+          engineering, model risk and change control. That is why we design for the examination as well as for
+          production.
         </p>
         <dl>
           <div>
@@ -93,12 +34,10 @@ const beliefs = [
             <dd><a href={`tel:${site.phone}`}>{site.phoneDisplay}</a></dd>
           </div>
           <div>
-            <dt>Address</dt>
+            <dt>Office</dt>
             <dd>
-              <address>
-                {site.address.street}<br />
-                {`${site.address.locality}, ${site.address.region} ${site.address.postalCode}`}
-              </address>
+              {site.address.street},{' '}
+              {`${site.address.locality}, ${site.address.region} ${site.address.postalCode}`}
             </dd>
           </div>
         </dl>
@@ -110,63 +49,31 @@ const beliefs = [
 </BaseLayout>
 
 <style>
-  .beliefs {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-top: 1px solid var(--ink);
-  }
-
-  .beliefs li {
-    display: grid;
-    grid-template-columns: 3.5rem 1fr;
-    gap: 1rem;
-    padding-block: 2rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .num {
-    font-family: var(--font-display);
-    font-size: var(--step-3);
-    line-height: 1;
-    color: var(--accent);
-  }
-
-  .beliefs h2 {
+  .h {
     font-size: var(--step-3);
   }
 
-  .beliefs p {
-    margin-top: 0.75rem;
-    max-width: 36rem;
+  .text > p {
+    max-width: 38rem;
+    font-size: var(--step-1);
+    line-height: 1.55;
     color: var(--ink-soft);
   }
 
-  .h {
-    margin: 1.25rem 0 clamp(2rem, 4vw, 3rem);
-    font-size: var(--step-4);
-  }
-
-  .split-aside .h {
-    margin-bottom: 0;
-  }
-
-  .where dl {
-    display: grid;
-    gap: 0;
+  dl {
     margin-top: 2.5rem;
     border-top: 1px solid var(--ink);
   }
 
-  .where dl > div {
+  dl > div {
     display: grid;
-    grid-template-columns: 7rem 1fr;
+    grid-template-columns: 6rem 1fr;
     gap: 1rem;
-    padding-block: 1.1rem;
+    padding-block: 1rem;
     border-bottom: 1px solid var(--rule);
   }
 
-  .where dt {
+  dt {
     font-size: var(--step--1);
     letter-spacing: 0.09em;
     text-transform: uppercase;
@@ -174,7 +81,7 @@ const beliefs = [
     padding-top: 0.2em;
   }
 
-  .where a {
+  dd a {
     text-underline-offset: 0.2em;
   }
 </style>

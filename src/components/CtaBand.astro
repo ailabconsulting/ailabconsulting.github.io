@@ -5,8 +5,8 @@ interface Props {
 }
 
 const {
-  title = 'Start with a governance assessment',
-  text = 'We review your agents and how their actions are approved and recorded, then map the gaps to the frameworks you report against. Scope and fee are agreed before we begin.',
+  title = 'Start with an assessment',
+  text = 'Fixed scope. You get the gaps in your AI agent controls and a ranked plan to close them.',
 } = Astro.props;
 ---
 
@@ -15,7 +15,7 @@ const {
     <h2 id="cta-title">{title}</h2>
     <div class="body">
       <p>{text}</p>
-      <a href="/contact/" class="btn btn-light">Book an assessment call <span class="arrow" aria-hidden="true">→</span></a>
+      <a href="/contact/" class="btn btn-light">Book a call <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>

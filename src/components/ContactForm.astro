@@ -1,9 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
 import { site } from '../data/site';
-
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-const interests = [...services.map((s) => s.data.title), 'Not sure yet'];
 ---
 
 <form
@@ -23,25 +19,13 @@ const interests = [...services.map((s) => s.data.title), 'Not sure yet'];
       <input name="email" type="email" autocomplete="email" required />
     </label>
   </div>
-  <div class="row">
-    <label>
-      <span>Company <em>optional</em></span>
-      <input name="company" type="text" autocomplete="organization" />
-    </label>
-    <label>
-      <span>Phone <em>optional</em></span>
-      <input name="phone" type="tel" autocomplete="tel" />
-    </label>
-  </div>
   <label>
-    <span>Which service are you interested in?</span>
-    <select name="interest">
-      {interests.map((i) => <option>{i}</option>)}
-    </select>
+    <span>Company <em>optional</em></span>
+    <input name="company" type="text" autocomplete="organization" />
   </label>
   <label>
-    <span>What would you like to discuss?</span>
-    <textarea name="message" rows="5" required></textarea>
+    <span>Which AI agents do you run or plan to run?</span>
+    <textarea name="message" rows="4" required></textarea>
   </label>
 
   <input type="hidden" name="page" value="/contact/" />

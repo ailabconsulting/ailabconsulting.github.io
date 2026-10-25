@@ -2,162 +2,91 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceIndex from '../components/ServiceIndex.astro';
-import ProcessSteps from '../components/ProcessSteps.astro';
 import FaqList from '../components/FaqList.astro';
 import CtaBand from '../components/CtaBand.astro';
 import HeroArt from '../components/HeroArt.astro';
 import { site } from '../data/site';
 import { faqs } from '../data/faqs';
+import { process } from '../data/process';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-const core = services.filter((s) => s.data.core !== false);
-const also = services.filter((s) => s.data.core === false);
 
-const buyers = [
+const outcomes = [
   {
-    title: 'Mid-tier banks',
-    text: "Examiners expect model risk management to cover AI agents, and most mid-tier banks don't have a dedicated AI governance team to do that work.",
+    title: 'Agents in production sooner',
+    text: 'Controls are part of the design, so risk and compliance can sign off without a rebuild.',
   },
   {
-    title: 'Credit unions',
-    text: 'Member-facing assistants and back-office agents, with controls a small team can keep up with.',
+    title: 'A named approver for every consequential action',
+    text: 'Approvals are tied to the exact action and checked before it runs.',
   },
   {
-    title: 'Insurers',
-    text: 'Claims and underwriting agents that record who approved each decision and what it was based on.',
-  },
-  {
-    title: 'Fintechs and payment companies',
-    text: 'Partner banks will ask how your agents are controlled. PCI DSS and DORA may apply as well.',
-  },
-];
-
-const differentiators = [
-  {
-    title: 'Experience in regulated production systems',
-    text: 'Our background is enterprise architecture and compliance in regulated firms, so designs are made with examinations and production load in mind.',
-  },
-  {
-    title: 'Both sides of the table',
-    text: 'We can go through SR 11-7, SOX and DORA with a risk committee in the morning and review a LangGraph workflow or an MCP gateway with engineers in the afternoon.',
-  },
-  {
-    title: 'A named approver for each consequential action',
-    text: "When an agent's action has consequences, a named person approves that specific action and its parameters. The approval expires, and it can be withdrawn.",
-  },
-  {
-    title: 'Reusable starting points',
-    text: 'We start engagements from reference architectures, control matrices and review checklists that we maintain, which shortens the early weeks.',
+    title: 'Answers for examiners',
+    text: 'Who approved what, and on what basis, is a query. Controls map to SR 11-7, SOX, DORA and the EU AI Act.',
   },
 ];
 ---
 
 <BaseLayout description={site.metaDescription} faqs={faqs}>
   <section class="hero">
-    <div class="container">
-      <div class="hero-top">
-        <div>
-          <p class="eyebrow">AI governance for regulated financial services</p>
-          <h1>AI agents with a <em>paper trail</em></h1>
-        </div>
-        <HeroArt />
-      </div>
-      <div class="hero-foot">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">AI governance for financial services</p>
+        <h1>AI agents that hold up <em>in an audit</em></h1>
         <p class="lede">
-          Examiners and auditors now ask a specific question about AI agents: who approved this action, and on what
-          basis? We help banks, credit unions, insurers and fintechs answer it with evidence, and we build the approval
-          and audit systems their agents run on.
+          We help banks, credit unions, insurers and fintechs put AI agents into production, with the approvals and
+          records examiners expect.
         </p>
         <div class="actions">
-          <a href="/contact/" class="btn btn-primary">Book an assessment call <span class="arrow" aria-hidden="true">→</span></a>
-          <a href="/services/" class="link-arrow">See the services</a>
+          <a href="/contact/" class="btn btn-primary">Book a call <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="/services/" class="link-arrow">See services</a>
         </div>
       </div>
-      <dl class="facts">
-        <div>
-          <dt>Fixed scope</dt>
-          <dd>for the governance assessment, agreed before work starts</dd>
-        </div>
-        <div>
-          <dt>Mapped controls</dt>
-          <dd>findings tied to SR 11-7, SOX, DORA and the EU AI Act</dd>
-        </div>
-        <div>
-          <dt>Per-action approval</dt>
-          <dd>bound to one action and its parameters, revocable until it runs</dd>
-        </div>
-        <div>
-          <dt>Queryable audit</dt>
-          <dd>each agent action linked to its inputs, policy checks and approver</dd>
-        </div>
-      </dl>
+      <HeroArt />
+    </div>
+  </section>
+
+  <section class="section section--sunk" aria-labelledby="value-title">
+    <div class="container">
+      <h2 id="value-title" class="h2">What you get</h2>
+      <ul class="outcomes">
+        {
+          outcomes.map((o) => (
+            <li>
+              <h3>{o.title}</h3>
+              <p>{o.text}</p>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </section>
 
   <section class="section" id="services" aria-labelledby="services-title">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">What we do</p>
-        <h2 id="services-title">Six services for firms putting agents into production</h2>
-        <p class="lede">
-          Each one can be bought on its own. The governance assessment is usually the first step, because its roadmap
-          tells you which of the others you need, if any.
-        </p>
-      </div>
-      <ServiceIndex services={core} />
-      {
-        also.map((s) => (
-          <p class="also">
-            <span>We also build the agents and models themselves.</span>
-            <a href={`/services/${s.id}/`} class="link-arrow">
-              {s.data.title} <span class="arrow" aria-hidden="true">→</span>
-            </a>
-          </p>
-        ))
-      }
-    </div>
-  </section>
-
-  <section class="section section--sunk" id="clients" aria-labelledby="clients-title">
-    <div class="container">
-      <div class="section-head row">
-        <div>
-          <p class="eyebrow">Who we work with</p>
-          <h2 id="clients-title">Regulated financial firms, mostly mid-sized</h2>
-        </div>
-        <a href="/industries/financial-services/" class="link-arrow">AI for financial services <span class="arrow" aria-hidden="true">→</span></a>
-      </div>
-      <ul class="buyers">
-        {
-          buyers.map((b) => (
-            <li>
-              <h3>{b.title}</h3>
-              <p>{b.text}</p>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="buyers-note">
-        If DORA or the EU AI Act applies to you, the assessment is a sensible first step. Healthcare and other regulated
-        SaaS companies face similar questions, and we also do engineering work in{' '}
-        <a href="/industries/manufacturing/">manufacturing</a> and <a href="/industries/retail/">retail</a>.
+      <h2 id="services-title" class="h2">Services</h2>
+      <ServiceIndex {services} />
+      <p class="note">
+        We also build agent platforms, LLM applications and machine learning systems.{' '}
+        <a href="/contact/">Talk to us</a>
       </p>
     </div>
   </section>
 
-  <section class="section approach" aria-labelledby="approach-title">
-    <div class="container split">
-      <div class="split-aside">
-        <p class="eyebrow">Background</p>
-        <h2 id="approach-title" class="quote">Why firms work with us</h2>
-      </div>
-      <ol class="principles">
+  <section class="section section--sunk" id="how" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title" class="h2">How we work</h2>
+      <p class="intro">
+        A small senior team with backgrounds in enterprise architecture and compliance at regulated financial firms.
+        You decide after each step whether to continue.
+      </p>
+      <ol class="steps">
         {
-          differentiators.map((p, i) => (
+          process.map((s, i) => (
             <li>
-              <span class="num">{String(i + 1).padStart(2, '0')}</span>
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
+              <span class="num">{i + 1}</span>
+              <h3>{s.title}</h3>
+              <p>{s.text}</p>
             </li>
           ))
         }
@@ -165,26 +94,10 @@ const differentiators = [
     </div>
   </section>
 
-  <section class="section section--sunk" id="process" aria-labelledby="process-title">
-    <div class="container">
-      <div class="section-head row">
-        <div>
-          <p class="eyebrow">How we work</p>
-          <h2 id="process-title">Four stages, and you can stop after any of them</h2>
-        </div>
-        <a href="/process/" class="link-arrow">See the full process <span class="arrow" aria-hidden="true">→</span></a>
-      </div>
-      <ProcessSteps />
-    </div>
-  </section>
-
   <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="container split">
-      <div class="split-aside">
-        <p class="eyebrow">Questions</p>
-        <h2 id="faq-title">Frequently asked questions</h2>
-      </div>
-      <FaqList faqs={faqs} />
+      <h2 id="faq-title" class="h2">Questions</h2>
+      <FaqList {faqs} />
     </div>
   </section>
 
@@ -193,54 +106,45 @@ const differentiators = [
 
 <style>
   .hero {
-    padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(0.5rem, 2vw, 1.5rem);
+    padding-block: clamp(3rem, 8vw, 6.5rem);
   }
 
-  .hero-top {
+  .hero-grid {
     display: grid;
-    align-items: end;
+    gap: 3rem;
+    align-items: center;
   }
 
-  .hero-top > :global(.hero-art) {
+  .hero-grid > :global(.hero-art) {
     display: none;
   }
 
   @media (min-width: 60rem) {
-    .hero-top {
+    .hero-grid {
       grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      gap: 3rem;
     }
-    .hero-top > :global(.hero-art) {
+    .hero-grid > :global(.hero-art) {
       display: block;
       justify-self: end;
-      margin-bottom: -1rem;
     }
   }
 
-  .hero h1 em {
+  h1 em {
     white-space: nowrap;
   }
 
-  .hero h1 {
-    margin-top: 1.75rem;
+  h1 {
+    margin-top: 1.5rem;
+    max-width: 14ch;
     font-size: var(--step-5);
     font-weight: 350;
     line-height: 1.02;
     letter-spacing: -0.025em;
   }
 
-  .hero-foot {
-    display: grid;
-    gap: 2rem;
-    margin-top: clamp(2rem, 4vw, 3rem);
-  }
-
-  @media (min-width: 60rem) {
-    .hero-foot {
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-      align-items: end;
-      gap: 4rem;
-    }
+  .hero .lede {
+    margin-top: 1.75rem;
+    max-width: 34rem;
   }
 
   .actions {
@@ -248,175 +152,100 @@ const differentiators = [
     flex-wrap: wrap;
     align-items: center;
     gap: 1rem 1.75rem;
+    margin-top: 2.25rem;
   }
 
-  .facts {
-    display: grid;
-    gap: 0 2rem;
-    margin-top: clamp(3rem, 7vw, 5.5rem);
-  }
-
-  .facts > div {
-    display: grid;
-    align-content: start;
-    gap: 0.35rem;
-    padding: 1.25rem 0 1.5rem;
-    border-top: 1px solid var(--ink);
-  }
-
-  @media (min-width: 40rem) {
-    .facts {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .facts {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  .facts dt {
-    font-family: var(--font-display);
-    font-size: var(--step-2);
-    line-height: 1.15;
-  }
-
-  .facts dd {
-    color: var(--ink-muted);
-  }
-
-  .section-head {
-    display: grid;
-    gap: 1.25rem;
-    margin-bottom: clamp(2.5rem, 5vw, 4rem);
-  }
-
-  .section-head h2 {
+  .h2 {
     font-size: var(--step-4);
-    max-width: 18ch;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
   }
 
-  .section-head h2 + .lede {
-    margin-top: -0.25rem;
-  }
-
-  .section-head.row {
-    align-items: end;
-  }
-
-  .section-head.row > div {
-    display: grid;
-    gap: 1.25rem;
-  }
-
-  @media (min-width: 48rem) {
-    .section-head.row {
-      grid-template-columns: 1fr auto;
-    }
-  }
-
-  .also {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.5rem 1rem;
-    margin-top: 2rem;
-    color: var(--ink-soft);
-  }
-
-  .buyers {
+  .outcomes {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 0 2rem;
+    gap: 0 2.5rem;
   }
 
-  @media (min-width: 40rem) {
-    .buyers {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  @media (min-width: 56rem) {
+    .outcomes {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
-  @media (min-width: 64rem) {
-    .buyers {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  .buyers li {
+  .outcomes li {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.6rem;
     align-content: start;
     padding: 1.5rem 0 2rem;
     border-top: 1px solid var(--ink);
   }
 
-  .buyers h3 {
+  .outcomes h3 {
     font-size: var(--step-2);
   }
 
-  .buyers p {
+  .outcomes p,
+  .steps p,
+  .intro,
+  .note {
     color: var(--ink-soft);
   }
 
-  .buyers-note {
-    max-width: 48rem;
-    margin-top: 1.5rem;
-    color: var(--ink-soft);
+  .note {
+    margin-top: 1.75rem;
   }
 
-  .buyers-note a {
+  .note a {
     color: var(--ink);
+    font-weight: 500;
     text-underline-offset: 0.2em;
   }
 
-  .quote {
-    margin-top: 1.5rem;
-    font-size: var(--step-3);
-    line-height: 1.08;
+  .intro {
+    max-width: 40rem;
+    margin: -1rem 0 2.5rem;
+    font-size: var(--step-1);
+    line-height: 1.5;
   }
 
-  .principles {
+  .steps {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 2.5rem 2.5rem;
+    gap: 0 2.5rem;
   }
 
-  @media (min-width: 40rem) {
-    .principles {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  @media (min-width: 48rem) {
+    .steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
-  .principles li {
+  .steps li {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.5rem;
     align-content: start;
-    padding-top: 1.25rem;
+    padding: 1.25rem 0 2rem;
     border-top: 1px solid var(--rule);
   }
 
-  .principles .num {
-    font-size: var(--step--1);
-    font-variant-numeric: tabular-nums;
+  .num {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    line-height: 1;
     color: var(--accent);
-    font-weight: 500;
   }
 
-  .principles h3 {
+  .steps h3 {
     font-size: var(--step-2);
   }
 
-  .principles p {
-    color: var(--ink-soft);
-  }
-
-  #faq h2 {
-    margin-top: 1.5rem;
-    font-size: var(--step-4);
+  @media (min-width: 60rem) {
+    #faq .split {
+      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    }
   }
 </style>

@@ -3,12 +3,12 @@
 export const site = {
   name: 'AI Lab Consulting',
   url: 'https://ailabconsulting.com',
-  tagline: 'AI agents with a paper trail.',
+  tagline: 'AI agents that hold up in an audit.',
   description:
-    'AI Lab Consulting is a consultancy in Laguna Beach, California, that helps banks, credit unions, insurers and fintechs govern the AI agents they run. Our focus is showing who approved each action an agent takes, and on what basis.',
+    'AI Lab Consulting helps banks, credit unions, insurers and fintechs put AI agents into production with the approvals and records that examiners and auditors expect. Based in Laguna Beach, California.',
   // Home page meta description (≤160 characters).
   metaDescription:
-    'AI agent governance for banks, insurers and fintechs: assessments, approval and audit design, and controls mapped to SR 11-7, SOX, DORA and the EU AI Act.',
+    'We help banks, credit unions, insurers and fintechs put AI agents into production with the approvals and audit trail examiners expect.',
   email: 'contact@ailabconsulting.com',
   phone: '+1-650-429-8850',
   phoneDisplay: '(650) 429-8850',
@@ -31,9 +31,6 @@ export const site = {
     'DORA',
     'EU AI Act',
     'AI-assisted software development',
-    'Context engineering',
-    'Knowledge graphs',
-    'Adversarial AI evaluation',
   ],
   // Getform endpoint and invisible reCAPTCHA v2 key carried over from the previous site.
   formEndpoint: 'https://getform.io/f/f31fe965-e20a-4528-bc75-9ecceccf8853',
@@ -47,7 +44,6 @@ export const site = {
 
 export const nav = [
   { href: '/services/', label: 'Services' },
-  { href: '/industries/', label: 'Industries' },
-  { href: '/process/', label: 'Process' },
+  { href: '/#how', label: 'How we work' },
   { href: '/about/', label: 'About' },
 ];

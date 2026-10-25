@@ -20,15 +20,14 @@ npm run preview  # serve dist/
 | --- | --- |
 | Company facts (address, phone, form endpoint, GA4 ID, social links) | `src/data/site.ts` |
 | Services, one Markdown file each | `src/content/services/` |
-| Industries, one Markdown file each | `src/content/industries/` |
-| Home page FAQ, process stages, cross-industry use cases | `src/data/` |
+| Home page FAQ and the "How we work" steps | `src/data/` |
 | Design tokens (colors, type scale) | `src/styles/global.css` |
 | Structured data (schema.org JSON-LD) | `src/lib/schema.ts` |
 | `robots.txt`, `llms.txt`, `llms-full.txt` | `src/pages/*.txt.ts`, built from the content above |
 
-Adding a service or industry is just a new Markdown file: pages, navigation, footer, sitemap, structured data and `llms.txt` pick it up automatically.
+Adding a service is just a new Markdown file: its page, the services list, footer, sitemap, structured data and `llms.txt` pick it up automatically. Keep copy short: one paragraph and four deliverables per service.
 
-Service and industry pages lead with a bold, direct answer in the first paragraph and carry their own FAQ in front matter. Keep that pattern: it is what search engines and AI answer engines quote.
+Redirects for pages removed in the October 2026 simplification are in `astro.config.mjs`.
 
 ## Brand assets
 

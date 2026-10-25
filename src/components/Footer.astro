@@ -4,7 +4,6 @@ import Logo from './Logo.astro';
 import { site } from '../data/site';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-const industries = (await getCollection('industries')).sort((a, b) => a.data.order - b.data.order);
 const year = new Date().getFullYear();
 ---
 
@@ -14,10 +13,9 @@ const year = new Date().getFullYear();
       <a href="/" class="brand" aria-label="AI Lab Consulting home"><Logo /></a>
       <p class="tagline">{site.tagline}</p>
       <address>
-        {site.address.street}<br />
-        {`${site.address.locality}, ${site.address.region} ${site.address.postalCode}`}<br />
+        <a href={`mailto:${site.email}`}>{site.email}</a><br />
         <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a><br />
-        <a href={`mailto:${site.email}`}>{site.email}</a>
+        {`${site.address.locality}, ${site.address.region}`}
       </address>
     </div>
 
@@ -28,27 +26,18 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-    <nav aria-labelledby="footer-industries">
-      <h2 id="footer-industries">Industries</h2>
-      <ul>
-        {industries.map((i) => <li><a href={`/industries/${i.id}/`}>{i.data.title}</a></li>)}
-        <li><a href="/industries/#cross-industry">Cross-industry</a></li>
-      </ul>
-    </nav>
-
     <nav aria-labelledby="footer-company">
       <h2 id="footer-company">Company</h2>
       <ul>
+        <li><a href="/#how">How we work</a></li>
         <li><a href="/about/">About</a></li>
-        <li><a href="/process/">Process</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>
   </div>
 
   <div class="container base">
-    <p>© {year} {site.name}. All rights reserved.</p>
-    <p>Laguna Beach, California</p>
+    <p>© {year} {site.name}</p>
   </div>
 </footer>
 
@@ -56,7 +45,7 @@ const year = new Date().getFullYear();
   .site-footer {
     background: var(--paper-sunk);
     border-top: 1px solid var(--rule);
-    padding-top: clamp(3.5rem, 7vw, 5.5rem);
+    padding-top: clamp(3rem, 6vw, 4.5rem);
     font-size: 0.95rem;
   }
 
@@ -72,7 +61,7 @@ const year = new Date().getFullYear();
 
   @media (min-width: 56rem) {
     .grid {
-      grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+      grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
     }
     .about {
       grid-column: auto;
@@ -94,7 +83,7 @@ const year = new Date().getFullYear();
   }
 
   address {
-    margin-top: 1.5rem;
+    margin-top: 1.25rem;
     color: var(--ink-muted);
     line-height: 1.7;
   }
@@ -129,12 +118,8 @@ const year = new Date().getFullYear();
   }
 
   .base {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.5rem 2rem;
-    margin-top: clamp(3rem, 6vw, 4.5rem);
-    padding-block: 1.5rem;
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    padding-block: 1.25rem;
     border-top: 1px solid var(--rule);
     color: var(--ink-muted);
     font-size: var(--step--1);
