@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ServiceIndex from '../../components/ServiceIndex.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { service } from '../../lib/schema';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const core = services.filter((s) => s.data.core !== false);
+const also = services.filter((s) => s.data.core === false);
+
+const description =
+  'Services for governing AI agents in regulated firms: governance assessments, approval and audit architecture, compliant AI-assisted development and more.';
+
+const schema = services.map((s) =>
+  service({ path: `/services/${s.id}/`, name: s.data.title, description: s.data.description }),
+);
+---
+
+<BaseLayout
+  title="AI governance services"
+  {description}
+  type="CollectionPage"
+  crumbs={[{ name: 'Services', href: '/services/' }]}
+  {schema}
+>
+  <PageHeader
+    eyebrow="Services"
+    title="Services for governing AI agents in regulated finance"
+    lede="Each of these can be bought on its own. Most engagements start with the governance assessment, because its roadmap shows which of the others you need, if any."
+  />
+
+  <section class="section" aria-label="Core services">
+    <div class="container">
+      <ServiceIndex services={core} headingLevel="h2" />
+    </div>
+  </section>
+
+  {
+    also.length > 0 && (
+      <section class="section" aria-labelledby="also-title">
+        <div class="container">
+          <p class="eyebrow">Also available</p>
+          <h2 id="also-title" class="h">We also build the systems</h2>
+          <ServiceIndex services={also} />
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section section--sunk" aria-labelledby="engage-title">
+    <div class="container">
+      <p class="eyebrow">How engagements run</p>
+      <h2 id="engage-title" class="h">Four stages, and you can stop after any of them</h2>
+      <ProcessSteps />
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .h {
+    margin: 1.25rem 0 clamp(2.5rem, 5vw, 3.5rem);
+    font-size: var(--step-4);
+    max-width: 18ch;
+  }
+</style>

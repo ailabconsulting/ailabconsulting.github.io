@@ -1,0 +1,35 @@
+---
+// Mark: an open circle (the idea) connected to a solid square (the product).
+---
+
+<span class="logo">
+  <svg class="mark" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true">
+    <circle cx="7" cy="17" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+    <path d="M9.9 14.1 13.6 10.4" stroke="currentColor" stroke-width="2"></path>
+    <rect x="13" y="3" width="8" height="8" fill="var(--logo-accent, var(--accent))"></rect>
+  </svg>
+  <span class="wordmark">AI Lab <span class="wordmark-sub">Consulting</span></span>
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .mark {
+    flex: none;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .wordmark-sub {
+    font-weight: 300;
+    font-style: italic;
+  }
+</style>

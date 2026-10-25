@@ -1,0 +1,204 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import FaqList from '../../components/FaqList.astro';
+import ServiceIndex from '../../components/ServiceIndex.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { service as serviceNode } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'services'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const path = `/services/${entry.id}/`;
+
+const others = (await getCollection('services', (s) => s.id !== entry.id)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const industries = (await getCollection('industries'))
+  .filter((i) => i.data.services.some((s) => s.id === entry.id))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout
+  title={entry.data.seoTitle ?? entry.data.title}
+  description={entry.data.description}
+  crumbs={[
+    { name: 'Services', href: '/services/' },
+    { name: entry.data.title, href: path },
+  ]}
+  faqs={entry.data.faqs}
+  schema={[serviceNode({ path, name: entry.data.title, description: entry.data.description })]}
+>
+  <PageHeader
+    eyebrow={`Service ${String(entry.data.order).padStart(2, '0')}`}
+    title={entry.data.title}
+    lede={entry.data.summary}
+  >
+    <a href="/contact/" class="btn btn-primary header-cta">Talk to us about this <span class="arrow" aria-hidden="true">→</span></a>
+  </PageHeader>
+
+  <section class="section">
+    <div class="container body">
+      <article class="prose">
+        <Content />
+      </article>
+
+      <aside class="aside" aria-labelledby="deliverables-title">
+        <div class="card">
+          <h2 id="deliverables-title">Deliverables</h2>
+          <ul class="tick-list">
+            {entry.data.deliverables.map((d) => <li>{d}</li>)}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--sunk" aria-labelledby="usecases-title">
+    <div class="container split">
+      <div class="split-aside">
+        <p class="eyebrow">Use cases</p>
+        <h2 id="usecases-title" class="h">Typical projects</h2>
+      </div>
+      <div>
+        <ol class="usecases">
+          {
+            entry.data.useCases.map((u, i) => (
+              <li>
+                <span class="num">{String(i + 1).padStart(2, '0')}</span>
+                {u}
+              </li>
+            ))
+          }
+        </ol>
+        {
+          industries.length > 0 && (
+            <p class="related">
+              Applied in:{' '}
+              {industries.map((ind, i) => (
+                <>
+                  <a href={`/industries/${ind.id}/`}>{ind.data.title}</a>
+                  {i < industries.length - 1 && ', '}
+                </>
+              ))}
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    entry.data.faqs.length > 0 && (
+      <section class="section" aria-labelledby="faq-title">
+        <div class="container split">
+          <div class="split-aside">
+            <p class="eyebrow">Questions</p>
+            <h2 id="faq-title" class="h">
+              Common questions
+            </h2>
+          </div>
+          <FaqList faqs={entry.data.faqs} />
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section" aria-labelledby="more-title">
+    <div class="container">
+      <p class="eyebrow">More services</p>
+      <h2 id="more-title" class="h more">Other services</h2>
+      <ServiceIndex services={others} />
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  :global(.header-cta) {
+    margin-top: 2rem;
+  }
+
+  .body {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 60rem) {
+    .body {
+      grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+      gap: 5rem;
+    }
+    .aside {
+      position: sticky;
+      top: 6.5rem;
+      align-self: start;
+    }
+  }
+
+  .card {
+    padding: 2rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+  }
+
+  .card h2 {
+    font-size: var(--step-2);
+    margin-bottom: 1.5rem;
+  }
+
+  .h {
+    margin-top: 1.25rem;
+    font-size: var(--step-4);
+  }
+
+  .more {
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .usecases {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--ink);
+  }
+
+  .usecases li {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    line-height: 1.35;
+  }
+
+  .usecases .num {
+    font-family: var(--font-body);
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+    padding-top: 0.3em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .related {
+    margin-top: 1.5rem;
+    color: var(--ink-muted);
+  }
+
+  .related a {
+    color: var(--ink);
+    text-underline-offset: 0.2em;
+  }
+</style>

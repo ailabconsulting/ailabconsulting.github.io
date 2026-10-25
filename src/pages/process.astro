@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import FaqList from '../components/FaqList.astro';
+import CtaBand from '../components/CtaBand.astro';
+import type { Faq } from '../data/faqs';
+
+const description =
+  'How an engagement works: a fixed-scope AI governance assessment, then a proof of concept, a build and a roll-out, with a decision point after each stage.';
+
+const faqs: Faq[] = [
+  {
+    q: 'Do we have to commit to all four stages up front?',
+    a: 'No. You commit to one stage at a time and continue only if the results justify it. Some organizations carry out the assessment roadmap with their own teams.',
+  },
+  {
+    q: 'Can we skip the proof of concept?',
+    a: 'Sometimes. If the gap is well understood (adding approval and audit controls to an existing agent, for example) we can go straight to the build. We decide that together during the assessment.',
+  },
+  {
+    q: 'What do you need from our team?',
+    a: 'An accountable owner for the AI program and access to the people who run the agents. We also need some time from risk and compliance, so that findings reflect how your firm is examined in practice.',
+  },
+];
+---
+
+<BaseLayout
+  title="How an AI governance engagement works"
+  {description}
+  crumbs={[{ name: 'Process', href: '/process/' }]}
+  {faqs}
+>
+  <PageHeader
+    eyebrow="Process"
+    title="How an engagement works"
+    lede="Engagements have four stages: a fixed-scope governance assessment, a proof of concept, a build and a roll-out. The length of each stage is agreed with you at the start of it, and you decide after each one whether to continue."
+  />
+
+  <section class="section">
+    <div class="container">
+      <ProcessSteps detailed />
+    </div>
+  </section>
+
+  <section class="section section--sunk" aria-labelledby="faq-title">
+    <div class="container split">
+      <div class="split-aside">
+        <p class="eyebrow">Questions</p>
+        <h2 id="faq-title" class="h">About working with us</h2>
+      </div>
+      <FaqList {faqs} />
+    </div>
+  </section>
+
+  <CtaBand title="Start with stage one." />
+</BaseLayout>
+
+<style>
+  .h {
+    margin-top: 1.25rem;
+    font-size: var(--step-4);
+  }
+</style>

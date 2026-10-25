@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { crossIndustry } from '../../data/use-cases';
+
+const industries = (await getCollection('industries')).sort((a, b) => a.data.order - b.data.order);
+
+const description =
+  'AI use cases by industry. Most of our work is in regulated financial services; we also build AI systems for manufacturing and retail.';
+---
+
+<BaseLayout
+  title="AI use cases by industry"
+  {description}
+  type="CollectionPage"
+  crumbs={[{ name: 'Industries', href: '/industries/' }]}
+>
+  <PageHeader
+    eyebrow="Industries"
+    title="AI use cases by industry"
+    lede="Most of our work is with regulated financial firms, where being able to show what an AI system did carries the most weight. The same governance patterns apply in healthcare and other regulated SaaS, and we also build AI systems for manufacturing and retail."
+  />
+
+  {
+    industries.map((ind, idx) => (
+      <section class:list={['section', { 'section--sunk': idx % 2 === 1 }]} aria-labelledby={`ind-${ind.id}`}>
+        <div class="container split">
+          <div class="split-aside">
+            <p class="eyebrow">{String(idx + 1).padStart(2, '0')}</p>
+            <h2 id={`ind-${ind.id}`} class="h">
+              <a href={`/industries/${ind.id}/`}>{ind.data.title}</a>
+            </h2>
+            <p class="muted summary">{ind.data.summary}</p>
+            <a href={`/industries/${ind.id}/`} class="link-arrow">
+              AI for {ind.data.title.toLowerCase()} <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+          <ul class="cases">
+            {ind.data.useCases.map((u) => (
+              <li>
+                <h3>{u.title}</h3>
+                <p>{u.text}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section" id="cross-industry" aria-labelledby="cross-title">
+    <div class="container split">
+      <div class="split-aside">
+        <p class="eyebrow">Any sector</p>
+        <h2 id="cross-title" class="h">Cross-industry use cases</h2>
+        <p class="muted summary">Work that applies regardless of sector.</p>
+      </div>
+      <ul class="cases">
+        {
+          crossIndustry.map((u) => (
+            <li>
+              <h3>{u.title}</h3>
+              <p>{u.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title="Other regulated sectors" text="The controls described here apply wherever an AI agent's actions need an accountable approver. Tell us about your situation and we'll say plainly whether we can help." />
+</BaseLayout>
+
+<style>
+  .h {
+    margin-top: 1.25rem;
+    font-size: var(--step-4);
+  }
+
+  .h a {
+    text-decoration: none;
+  }
+
+  .h a:hover {
+    color: var(--accent);
+  }
+
+  .summary {
+    margin-block: 1.25rem 1.5rem;
+    max-width: 28rem;
+  }
+
+  .cases {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0 2.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .cases {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  .cases li {
+    display: grid;
+    gap: 0.5rem;
+    align-content: start;
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .cases h3 {
+    font-size: var(--step-2);
+  }
+
+  .cases p {
+    color: var(--ink-soft);
+  }
+</style>

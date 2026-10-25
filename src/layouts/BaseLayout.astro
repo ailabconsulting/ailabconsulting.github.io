@@ -1,0 +1,118 @@
+---
+import { Font } from 'astro:assets';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { site } from '../data/site';
+import type { Faq } from '../data/faqs';
+import { organization, website, webPage, type Crumb, type PageType } from '../lib/schema';
+import '../styles/global.css';
+
+interface Props {
+  /** Page title without the site name. Omit on the home page. */
+  title?: string;
+  description: string;
+  type?: PageType;
+  /** Trail after Home; also rendered as visible breadcrumbs. */
+  crumbs?: Crumb[];
+  /** Questions answered on the page, marked up as FAQPage. */
+  faqs?: Faq[];
+  /** Extra JSON-LD nodes for the page's @graph. */
+  schema?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { title, description, type, crumbs = [], faqs = [], schema = [], noindex = false } = Astro.props;
+
+const fullTitle = title
+  ? `${title} | ${site.name}`
+  : `${site.name} | AI governance for financial services`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ogImage = new URL('/og.png', site.url).href;
+
+const graph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    organization(),
+    website(),
+    ...webPage({ path: Astro.url.pathname, title: title ?? fullTitle, description, type, crumbs, faqs }),
+    ...schema,
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title ?? fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${site.name}: ${site.tagline}`} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#fcfdfb" />
+
+    <Font cssVariable="--font-display" preload={[{ style: 'normal' }]} />
+    <Font cssVariable="--font-body" preload />
+
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+
+    {
+      site.ga4Id && (
+        <>
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id}`} />
+          <script is:inline define:vars={{ id: site.ga4Id }}>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
+            gtag('config', id);
+          </script>
+        </>
+      )
+    }
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      {crumbs.length > 0 && <Breadcrumbs crumbs={crumbs} />}
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 100;
+    padding: 0.6rem 1rem;
+    background: var(--ink);
+    color: var(--on-ink);
+    transform: translateY(-150%);
+  }
+  .skip-link:focus {
+    transform: none;
+  }
+</style>
