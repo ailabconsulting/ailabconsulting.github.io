@@ -1,39 +1,28 @@
 # AI Lab Consulting
 
-> AI Lab Consulting is a consultancy in Laguna Beach, California, that helps banks, credit unions, insurers and fintechs govern the AI agents they run. Our focus is showing who approved each action an agent takes, and on what basis.
-
-Engagements run in four stages: governance assessment, proof of concept, controls and solution build, roll-out and evidence.
+> AI Lab Consulting helps banks, credit unions, insurers and fintechs put AI agents into production with the approvals and records that examiners and auditors expect. Based in Laguna Beach, California.
 
 ## Services
 
-- [Agentic AI governance assessment](https://ailabconsulting.com/services/governance-assessment/): A fixed-scope review of your AI agents and their approval and audit controls, mapped to the frameworks your examiners use.
-- [Agent authorization and audit architecture](https://ailabconsulting.com/services/agent-authorization/): Approval and audit design that lets AI agents take consequential actions while each action stays traceable to a person.
-- [AI-assisted SDLC with compliance built in](https://ailabconsulting.com/services/ai-assisted-sdlc/): AI coding assistants and agents in regulated engineering teams, with change control and audit evidence captured by the pipeline.
-- [Context engineering and knowledge graphs](https://ailabconsulting.com/services/context-engineering/): A validated knowledge graph and governed data sources for LLM agents to draw on.
-- [Adversarial AI review](https://ailabconsulting.com/services/adversarial-review/): AI models from several vendors cross-examine your specs, policies, model documentation and code, and each review leaves a sealed record.
-- [Fractional AI architect and governance lead](https://ailabconsulting.com/services/fractional-ai-leadership/): Senior AI architecture and governance leadership, part-time and on retainer, for regulated firms that can't justify a full-time hire.
-- [Agent and AI application engineering](https://ailabconsulting.com/services/ai-engineering/): We also design and build the systems, including agent platforms, LLM applications and machine learning models, with governance controls included.
+- [AI governance assessment](https://ailabconsulting.com/services/governance-assessment/): A fixed-scope review of the AI agents you run, with the gaps mapped to SR 11-7, SOX, DORA and the EU AI Act.
+- [Approval and audit architecture](https://ailabconsulting.com/services/agent-authorization/): Every consequential agent action approved by a named person and recorded, enforced where the action runs.
+- [Compliant AI-assisted engineering](https://ailabconsulting.com/services/ai-assisted-sdlc/): Your engineers use AI coding tools, and the pipeline keeps the change-control evidence auditors ask for.
+- [Fractional AI governance lead](https://ailabconsulting.com/services/fractional-ai-leadership/): Senior AI governance and architecture leadership on retainer, for firms that don't need a full-time hire.
 
-## Industries
+## How we work
 
-- [AI for financial services](https://ailabconsulting.com/industries/financial-services/): AI agent governance and architecture for banks, credit unions, insurers, fintechs and payment companies.
-- [AI for manufacturing](https://ailabconsulting.com/industries/manufacturing/): Predictive maintenance and visual inspection for plants and production lines.
-- [AI for retail and e-commerce](https://ailabconsulting.com/industries/retail/): Demand forecasting, pricing, targeted marketing and shopping assistants grounded in your catalog.
-- [Cross-industry use cases](https://ailabconsulting.com/industries/#cross-industry): Agent governance assessments, Governed AI agents, Decision lineage, Compliant AI-assisted engineering, Knowledge-graph grounding, Adversarial document review.
-
-## Company
-
-- [About](https://ailabconsulting.com/about/): Who we are and how we work.
-- [Process](https://ailabconsulting.com/process/): How an engagement runs, stage by stage.
-- [Contact](https://ailabconsulting.com/contact/): Book an assessment call.
+1. Assess: A fixed-scope review of your agents and controls, and a ranked list of what to fix.
+2. Build: We design and build the controls, starting with one workflow on your data.
+3. Hand over: Your team runs it, with the documentation and the evidence trail.
 
 ## Contact
 
 - Email: contact@ailabconsulting.com
 - Phone: (650) 429-8850
-- Address: 1968 S. Coast Hwy #119, Laguna Beach, CA 92651
-- Contact form: https://ailabconsulting.com/contact/
+- Location: Laguna Beach, CA
+- Book a call: https://ailabconsulting.com/contact/
 
 ## Optional
 
-- [Full text of this site](https://ailabconsulting.com/llms-full.txt): Every page's content in one Markdown file.
+- [About](https://ailabconsulting.com/about/)
+- [Full text of this site](https://ailabconsulting.com/llms-full.txt)

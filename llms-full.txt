@@ -1,6 +1,6 @@
 # AI Lab Consulting
 
-> AI Lab Consulting is a consultancy in Laguna Beach, California, that helps banks, credit unions, insurers and fintechs govern the AI agents they run. Our focus is showing who approved each action an agent takes, and on what basis.
+> AI Lab Consulting helps banks, credit unions, insurers and fintechs put AI agents into production with the approvals and records that examiners and auditors expect. Based in Laguna Beach, California.
 
 Website: https://ailabconsulting.com/
 
@@ -8,464 +8,114 @@ Website: https://ailabconsulting.com/
 
 - Email: contact@ailabconsulting.com
 - Phone: (650) 429-8850
-- Address: 1968 S. Coast Hwy #119, Laguna Beach, CA 92651
-- Contact form: https://ailabconsulting.com/contact/
+- Location: Laguna Beach, CA
+- Book a call: https://ailabconsulting.com/contact/
 
 ---
 
-## Frequently asked questions
+## How we work
 
-### What does AI Lab Consulting do?
-
-We advise banks, credit unions, insurers and fintechs on governing AI agents. Most engagements start with an assessment of the agents a firm already runs. After that we design approval and audit systems, set up controls for AI-assisted software development, build knowledge graphs for agents to draw on, and run multi-model reviews of documents and code.
-
-### What is an agentic AI governance assessment?
-
-It is a fixed-scope review of the AI agents in part or all of an organization. For each agent we record what it can access and who approves its consequential actions, then test whether its past decisions can be reconstructed. Gaps are mapped to SR 11-7, SOX, DORA and the EU AI Act and ranked in a remediation roadmap.
-
-### How do you stop an AI agent from taking actions nobody approved?
-
-The agent has to obtain a signed approval from a named person before any consequential action. Each approval covers one tool call with specific parameters and expires after a few minutes. The system that carries out the action checks the approval first; if the parameters differ, or the approval has expired or been revoked, the action is refused.
-
-### What makes human-in-the-loop approval hold up in an audit?
-
-Evidence that exists outside the agent. A button click logged in the agent's own database proves very little. A signed record that names the approver, the action and its parameters, written when the decision was made and linked to any later revocation, is something an auditor can check independently.
-
-### Why review AI output with models from more than one vendor?
-
-Models from the same vendor tend to share blind spots, and a model asked to review another model's output is inclined to agree with it. In a cross-vendor review no model rules on findings raised by its own vendor's models, and a blocking finding needs support from at least two vendors.
-
-### Do you provide legal or compliance sign-off?
-
-No. We map technical controls and evidence to regulatory frameworks and help implement them. Interpreting the law and attesting to compliance remain with your compliance team, counsel and auditors; our work gives them material to review.
-
-### How do engagements usually run?
-
-Most begin with the fixed-scope assessment. Follow-on work is staged as a proof of concept, a build and a roll-out, with a decision about whether to continue after each stage. How long each stage takes depends on the scope agreed at the start. Adversarial review and fractional leadership can also run as retainers.
-
-### Where is AI Lab Consulting located?
-
-In Laguna Beach, California. We work with client teams remotely.
+1. Assess: A fixed-scope review of your agents and controls, and a ranked list of what to fix.
+2. Build: We design and build the controls, starting with one workflow on your data.
+3. Hand over: Your team runs it, with the documentation and the evidence trail.
 
 ---
 
-## Process
-
-Source: https://ailabconsulting.com/process/
-
-### 1. Governance assessment
-
-A review of your AI agents and how their actions are approved and recorded, with gaps mapped to the frameworks you report against. We list the agents and AI-assisted workflows in scope, trace who approves each consequential action, and try to reconstruct a sample of past decisions from your records. Findings are mapped to SR 11-7, SOX, DORA and the EU AI Act and come with a ranked remediation roadmap.
-
-### 2. Proof of concept
-
-One workflow, on your data, with the approval and audit controls in place from the start. We build a working slice that includes approvals, decision lineage and adversarial evaluation, and measure it against success criteria agreed before work starts. You decide whether to continue based on those results.
-
-### 3. Controls and solution build
-
-Approval flows, lineage, knowledge sources and the agents themselves, built as one system. The proof of concept is extended to production standards. That usually means approval and audit services, governed context for agents, compliant development pipelines, and the agents or applications that depend on them.
-
-### 4. Roll-out and evidence
-
-Deployment to production, plus an evidence trail your auditors can query. We validate the system with the people who will use it, deploy it, and set up monitoring for quality, drift and cost. Your team receives the documentation and the evidence trail and takes over operation.
-
----
-
-## Service: Agentic AI governance assessment
+## AI governance assessment
 
 Source: https://ailabconsulting.com/services/governance-assessment/
 
-An agentic AI governance assessment answers one question about a defined set of AI agents: if an examiner asked what an agent did and who approved it, could you show them? For many firms the honest answer today is "partly". Agents arrived faster than the controls around them.
+Start here if you run AI agents, or plan to, and need to know whether you could show an examiner what they did and who approved it. We review the agents in scope, test a sample of past decisions against your records, and tell you what to fix first.
 
-### What we look at
+What you get:
 
-We list the agents and AI-assisted workflows in scope, including the data they read and the tools they can call. For each action with consequences we trace who approves it and what gets recorded, then try to reconstruct a sample of past decisions from those records.
+- An inventory of your AI agents and what each one can do
+- Who approves each consequential action, and what gets recorded
+- Gaps mapped to SR 11-7, SOX, DORA and the EU AI Act
+- A ranked remediation plan and a one-page board summary
 
-### How findings are mapped
+### How is the assessment priced?
 
-Each finding is tied to controls your examiners and auditors already test: SR 11-7 for model risk, SOX for financial reporting, DORA for ICT risk in EU entities, and the EU AI Act. PCI DSS is added where card data is involved.
-
-### What you get at the end
-
-A ranked list of gaps, a remediation roadmap with effort estimates, and a short summary for the board or risk committee. If you continue with further work, whether with us or with your own teams, the roadmap is the starting brief.
-
-### What you get
-
-- An inventory of AI agents and AI-assisted workflows, with what each one can access and do
-- A review of who or what approves each consequential action
-- A test of whether past agent decisions can be reconstructed from the records you keep
-- Gaps in human oversight, ranked by risk
-- A control mapping to SR 11-7, SOX, DORA and the EU AI Act, plus PCI DSS where card data is involved
-- A remediation roadmap with effort estimates and a summary for the board
-
-### Typical projects
-
-- Preparing for a regulatory examination or an internal audit of AI use
-- Taking stock of agents that teams have already deployed
-- Getting board or risk-committee approval for an agent program
-- Due diligence on an AI vendor before it reaches production
-
-#### What is an agentic AI governance assessment?
-
-A structured review of the AI agents in scope. It records what each agent can do and who approves its consequential actions, tests whether its decisions can be reconstructed afterwards, and maps the gaps to the regulations that apply. The output is a ranked list of gaps and a remediation roadmap.
-
-#### How is the assessment scoped?
-
-We agree the number of agents and business areas in scope before starting, and that fixes the cost and the timeline.
+It is fixed scope. We agree which agents and business areas are in scope before we start, and that sets the fee.
 
 ---
 
-## Service: Agent authorization and audit architecture
+## Approval and audit architecture
 
 Source: https://ailabconsulting.com/services/agent-authorization/
 
-Agent authorization and audit architecture covers two things: which actions an agent may take, and the record that later shows who approved each one. Many agent projects have the first in some form and very little of the second.
+Agents can prepare payments, change records and contact customers. We design the controls that make those actions safe to allow. Each agent gets narrow permissions, consequential actions need a named approver, and every decision is recorded so an auditor's question becomes a query. Controls are enforced at the tool layer, including MCP servers and API gateways.
 
-### Scoping an agent's authority
+What you get:
 
-We give each agent the narrowest permissions that let it do its job. Attribute- and relationship-based access control lets a policy say, for example, that an agent may prepare payments up to a set amount, and only for accounts its user owns.
+- Access policies that limit what each agent can do (ABAC and ReBAC)
+- Signed approvals tied to the exact action and its parameters, checked before it runs
+- A decision record linking each action to its inputs, policies and approver
+- Agents grounded in a governed knowledge graph, so they act on approved data
 
-For consequential actions the agent must also obtain a signed approval from a named person. The approval names the tool and a hash of the parameters, expires quickly and can be revoked. It is checked where the action executes, which includes MCP servers and API gateways.
+### Isn't OAuth enough to control an AI agent?
 
-### Lineage
-
-We design decision lineage as a graph linking each action to its request, inputs, policy decisions, model calls and approvals. An auditor's question then becomes a query, and its answer can be verified.
-
-### Misuse
-
-Agents can be steered by the content they read. We threat-model how an agent could act beyond its approval (a swapped amount, a replayed approval, a delegation broader than intended) and block those paths at the point of execution. Instructions in the prompt don't count as a control.
-
-### What you get
-
-- An authorization model for agents using attribute- and relationship-based access control (ABAC and ReBAC)
-- A per-action approval flow, with signed approvals tied to the tool and its parameters that can be revoked
-- Enforcement at the tool layer, including MCP servers and API gateways
-- Decision lineage linking each action to its inputs, policy checks, model calls and approvals
-- A threat model for agent misuse, such as swapped parameters or replayed approvals
-- A reference architecture and implementation notes for your platform teams
-
-### Typical projects
-
-- Agents that initiate payments, trades or treasury operations
-- Agents that change customer records, credit limits or access rights
-- Multi-agent workflows that span several systems
-- Adding approvals and lineage to agents already in production
-
-#### What is decision lineage for AI agents?
-
-Decision lineage is a linked record of what led to an agent's action: the request, the documents and data it used, the policies it was checked against, the model calls it made and the approvals it received. It is stored as a graph, so a question like "who approved this payment, and based on what?" can be answered with a query.
-
-#### What is the difference between ABAC and ReBAC for AI agents?
-
-Attribute-based access control (ABAC) decides access from attributes of the actor, the resource and the request, such as role, amount or time of day. Relationship-based access control (ReBAC) decides from relationships, for example whether the agent is acting for a user who owns the account. Agents usually need both. The relationship establishes whose authority the agent carries; the attributes limit what it can do with it.
-
-#### Isn't OAuth enough to control what an agent can do?
-
-OAuth delegates access for a session, and an agent holding a token can usually do anything the token's scope allows until it expires. For consequential actions, agents also need authorization per action, tied to the parameters and revocable while the action is pending. That can be built as a profile on top of OAuth 2.0 Token Exchange (RFC 8693).
+OAuth grants access for a session. An agent also needs approval for each consequential action, tied to its parameters and revocable until it runs. That can be built on top of OAuth 2.0 Token Exchange (RFC 8693).
 
 ---
 
-## Service: AI-assisted SDLC with compliance built in
+## Compliant AI-assisted engineering
 
 Source: https://ailabconsulting.com/services/ai-assisted-sdlc/
 
-An AI-assisted development lifecycle with compliance built in lets a regulated engineering team use AI coding assistants and agents without opening gaps in change control. Auditors still need to see who requested and approved each change, and the lifecycle keeps that record intact when an agent wrote the code.
+Banks and insurers want the speed of AI coding tools without gaps in change control. We set up the development lifecycle so the agent that writes a change never approves it, and so the evidence for each release is produced as you ship.
 
-### Define the lifecycle first
+What you get:
 
-Before rolling out tools more widely, we agree which stages AI agents may carry out, what they may touch, and where a named person has to review. Coding agents get roles with limited permissions, and the agent that writes a change cannot approve it.
+- Rules for where AI may write code and where a person must approve
+- Change requests stored as code and approved in normal review
+- Release evidence produced by the pipeline
+- Multi-model review of specs and code before sign-off
+- Mapping to SOX, PCI DSS and DORA change controls
 
-### Evidence produced by the pipeline
+### Can regulated teams use AI coding agents and still pass an audit?
 
-Change requests live as code beside the software they change. Evidence tags connect requirements to code, tests and approvals, and stage documentation is versioned in git. When an auditor asks for release evidence, it is already there.
-
-### Mapping to existing controls
-
-We map the lifecycle to the change-management and resilience controls you already report against under SOX, PCI DSS and DORA. Bringing AI into development shouldn't require a new control framework.
-
-### What you get
-
-- A development lifecycle that defines where AI may work and where people must approve
-- Roles for coding agents with limited permissions and defined handoffs
-- Change requests stored as code and approved through normal review
-- Evidence tags linking each requirement to its code, tests and approvals
-- Stage documentation generated and versioned in git
-- A mapping to SOX, PCI DSS and DORA change-management controls
-
-### Typical projects
-
-- Introducing AI coding assistants and agents at a bank or insurer
-- Passing SOX change-management testing with AI involved in development
-- Reducing the manual work of assembling release evidence
-- Giving many teams one agreed way of using AI in development
-
-#### Can regulated teams use AI coding agents and still pass an audit?
-
-Yes, provided the lifecycle is designed for it. Each change needs a traceable request, an approver who did not write it, and proof that tests ran. If the pipeline records those automatically, an AI agent can write the code and the audit trail is still complete.
-
-#### What is change request as code?
-
-The change request (its scope, risk rating, approvals and links to tests) is a versioned file in the same repository as the code. It is approved through the normal review process, so the evidence auditors ask for is produced as part of shipping.
+Yes, if the pipeline records who requested each change, who approved it and that tests ran. The agent that writes a change must never be the one that approves it.
 
 ---
 
-## Service: Context engineering and knowledge graphs
-
-Source: https://ailabconsulting.com/services/context-engineering/
-
-Context engineering gives AI agents an accurate picture of the organization they work in: what exists, how the parts relate, who owns them and who may see them. Many agent failures in production come down to context. The model behaved as designed but was handed information that was wrong, out of date or outside the user's permissions.
-
-### The knowledge graph
-
-We model your domain as an ontology, a precise vocabulary for the entities, systems, policies and relationships agents reason about, and validate it with SHACL constraints on every change. Competency questions set out what the graph must be able to answer, and tests check that it does.
-
-### Governed sources
-
-Each source that feeds your agents has an owner, freshness rules and access rules. An agent receives only the context its user is entitled to see, and each answer can be traced back to its source.
-
-### Retrieval
-
-Graph queries handle precise questions and search handles unstructured documents; RAG that combines the two holds up better on high-stakes questions. We build in phases, starting with a single domain.
-
-### What you get
-
-- A domain ontology covering the entities, systems and rules your agents reason about
-- SHACL constraints that validate the knowledge graph whenever it changes
-- Owners, freshness rules and access rules for every source that feeds your agents
-- Retrieval that combines graph queries with search
-- Competency questions and tests showing that the graph can answer what agents ask
-- A phased build plan that starts with one domain
-
-### Typical projects
-
-- Grounding agents in your products, policies, systems and their owners
-- Replacing vector-only RAG where answers must be exact
-- Making architecture and control knowledge queryable for risk teams
-- Limiting each agent to the context its user is entitled to see
-
-#### What is context engineering?
-
-Context engineering is deciding what information an AI model or agent receives: which sources, in what structure, and under which access rules. For agents it affects behavior more than prompt wording does, because an agent given stale or unauthorized context will act on it with confidence.
-
-#### When is a knowledge graph better than vector search?
-
-Vector search returns passages similar to the question. That helps with open-ended questions but is unreliable when there is one correct answer, such as which system owns a process or which policy applies to an action. A validated knowledge graph answers those precisely and can show how it reached the answer. Search still handles unstructured documents alongside it.
-
----
-
-## Service: Adversarial AI review
-
-Source: https://ailabconsulting.com/services/adversarial-review/
-
-Adversarial AI review checks whether a document or a piece of code is fit to rely on, and keeps a record of how that judgment was reached. Specs, policies and code are now written faster than specialists can review them, and a single model asked to check another model's work tends to agree with it.
-
-### Reviewer roles and vendors
-
-Each review panel pairs roles (a completeness auditor, a consistency checker, a security reviewer and a contrarian who is required to object) with models from several vendors. Findings are cross-examined anonymously, and no model rules on findings raised by its own vendor's models, so a blind spot shared by one vendor's models gets caught by another's.
-
-### Verdicts
-
-A written policy computes the verdict. One example: block only if models from at least two vendors independently confirm a serious finding. A person makes the final decision, and dismissing a blocking finding requires a recorded reason. The full deliberation is sealed so it can be checked later.
-
-### Ways to buy it
-
-Reviews can be a one-off engagement, a retainer for high-volume documents, or a gate in your CI pipeline. They can run entirely on internally hosted models.
-
-### What you get
-
-- Review panels pairing defined reviewer roles with models from several vendors
-- Acceptance criteria for each type of document or code under review
-- Anonymous cross-examination in which no model judges findings from its own vendor
-- Verdicts computed from a written policy, with a recorded human sign-off
-- A tamper-evident record of every review
-- Delivery as a one-off engagement, a retainer or a CI pipeline gate
-
-### Typical projects
-
-- Reviewing RFCs, PRDs and threat models before approval
-- Challenging policies and model risk documentation before submission
-- Second-line review of AI-generated code and configuration
-- High-volume document review that your specialists cannot keep up with
-
-#### What is adversarial AI review?
-
-A review designed to find reasons a document or piece of code should not be trusted. Several reviewers with assigned roles, one of them required to object, examine the work independently using models from different vendors. They cross-examine each other's findings, a written policy computes the verdict, and a person signs off.
-
-#### Can reviews run without sending data to public AI APIs?
-
-Yes. Review panels can run entirely on models hosted in your environment behind an internal gateway, and can mix internal and commercial models where your policies allow it.
-
-#### What evidence does a review produce?
-
-A record of the criteria applied, every finding with its location, and how the other reviewers judged each finding. It also holds the verdict with the policy rule behind it and the human decision, including reasons for any dismissed findings. The record is sealed with a cryptographic hash, so later changes can be detected.
-
----
-
-## Service: Fractional AI architect and governance lead
+## Fractional AI governance lead
 
 Source: https://ailabconsulting.com/services/fractional-ai-leadership/
 
-A fractional AI architect and governance lead is a senior person on retainer who sets your AI controls, reviews the architecture and reports to the board. Mid-sized banks, credit unions, insurers and fintechs face much the same AI expectations as large institutions, with far smaller teams and budgets.
+Mid-sized firms face the same AI expectations as large banks, with far smaller teams. A fractional lead sets your AI controls, reviews what gets built and reports to the board, and can step into hands-on work when needed.
 
-### Policy and engineering
+What you get:
 
-The role covers AI policy, control frameworks and conversations with regulators, as well as agent platform architecture (Kubernetes, MCP tool routing, LangGraph orchestration). Decisions about AI risk are made by someone who understands the policy and its engineering consequences.
-
-### Background
-
-We bring senior enterprise architecture and compliance experience from regulated production environments, and design with examinations and production load in mind.
-
-### How the retainer works
-
-You get an agreed amount of time each month, a seat at the governance meetings where AI decisions are made, and someone to call when an AI risk question comes up between meetings. The scope can extend to hands-on assessment, architecture or engineering work when needed.
-
-### What you get
-
-- An AI governance framework, policies and operating model
-- Architecture reviews of AI initiatives and vendors
-- Reporting on AI use and risk to the board, risk committee and regulators
-- Reference architectures for agent platforms
-- Help with hiring, and mentoring for AI and platform teams
-- A named person to escalate AI risk decisions to
-
-### Typical projects
-
-- Mid-sized banks, credit unions and insurers without an AI governance lead
-- Fintechs preparing for partner-bank or regulator due diligence
-- Firms starting an agent program that needs senior architecture input
-- Interim cover while you recruit a permanent hire
-
-#### What does a fractional AI governance lead do?
-
-Provides senior AI architecture and governance leadership part-time, on a retainer. The work usually includes setting AI policy and controls, reviewing AI projects and vendors, reporting AI risk to the board and regulators, and advising the engineers who build AI systems.
-
-#### Who is fractional AI leadership for?
-
-Regulated firms that need senior AI governance and architecture judgment without a full-time executive: typically mid-sized banks, credit unions, insurers, fintechs and payment companies, or firms that need cover while they recruit.
+- AI policy, controls and operating model
+- Architecture and vendor reviews
+- Reporting to the board, risk committee and regulators
+- A senior person to call when AI risk decisions come up
 
 ---
 
-## Service: Agent and AI application engineering
+## Questions
 
-Source: https://ailabconsulting.com/services/ai-engineering/
+### What does AI Lab Consulting do?
 
-We design and build AI systems with the approval, lineage and evaluation controls already in place. Adding governance after launch is slower and more expensive than including it in the first design.
+We help banks, credit unions, insurers and fintechs put AI agents into production with the approvals and records that examiners and auditors expect.
 
-### Agent platforms
+### What is an AI governance assessment?
 
-For organizations with many agents across many teams, we design shared platforms on Kubernetes. They route tool calls through the Model Context Protocol (MCP), orchestrate workflows with LangGraph, run across regions, and include a metadata layer that tells each agent what exists and who owns it.
+A fixed-scope review of the AI agents you run: what each one can do and who approves its actions. You get the gaps, mapped to SR 11-7, SOX, DORA and the EU AI Act, and a ranked plan to close them.
 
-### LLM applications and machine learning
+### How do you stop an AI agent from taking actions nobody approved?
 
-We build retrieval-augmented assistants and document automation grounded in governed context. We also build predictive models for forecasting, risk scoring and anomaly detection, and computer vision for inspection and safety monitoring. Each model is compared with your current baseline before release.
+Consequential actions need a signed approval from a named person, tied to the exact parameters. The system that runs the action checks the approval first and refuses anything that does not match.
 
-### Handover
+### Do you provide legal or compliance sign-off?
 
-Systems are documented, monitored for quality, drift, latency and cost, and handed over to your team to run.
+No. We design and build the controls and the evidence. Your compliance team, counsel and auditors make the legal calls.
 
-### What you get
+### Do you work outside financial services?
 
-- Agent platform architecture on Kubernetes, with MCP tool routing and LangGraph orchestration
-- Multi-region resilience for AI services with uptime requirements
-- LLM applications and RAG over governed knowledge
-- Machine learning for forecasting, risk scoring and anomaly detection
-- Computer vision for inspection and safety monitoring
-- Evaluation, monitoring and handover to your team
+Yes. We also build machine learning and computer vision systems, including for manufacturing and retail.
 
-### Typical projects
+### Where are you based?
 
-- Building a governed agent platform shared by many internal teams
-- Turning an AI prototype into a production service
-- Predictive models for demand, risk and maintenance
-- Visual quality control and safety monitoring
-
-#### What is an agentic AI platform?
-
-Shared infrastructure that lets many teams run AI agents under the same controls. It usually includes a gateway that routes agents' tool calls (often over the Model Context Protocol, MCP), orchestration for multi-step workflows, identity and authorization for agents, and observability and evaluation. Building it once saves each team from solving security and audit separately.
-
-#### Do you still build classic machine learning?
-
-Yes. For structured data such as transactions, sales or sensor readings, purpose-built models are usually more accurate, cheaper to run and easier to explain than large language models. Computer vision is still the better tool for high-volume visual inspection.
-
----
-
-## Industry: AI for financial services
-
-Source: https://ailabconsulting.com/industries/financial-services/
-
-Financial firms have to be able to explain AI-driven decisions and back the explanation with evidence, because those decisions affect customers and regulators review them. Agents add another requirement. Once software can initiate a payment or change a record, each of those actions has to be traceable to a named person at the time it happened.
-
-Our work is aimed at mid-sized banks, credit unions, insurers, fintechs and payment companies whose use of agents has grown faster than their controls. It usually begins with a fixed-scope governance assessment mapped to SR 11-7, SOX, DORA and the EU AI Act. Later stages cover approval and audit architecture, compliance controls for AI-assisted engineering, and knowledge graphs for agents to draw on.
-
-Firms subject to DORA or the EU AI Act tend to start sooner, since both expect controls to be demonstrated with evidence.
-
-### Use cases
-
-- Agent governance before an examination: An inventory of every AI agent, its permissions and its audit trail, with gaps closed before examiners or auditors look.
-- Agent-initiated payments: Agents prepare payments and treasury operations, and each one executes only after a signed approval tied to its parameters.
-- Model risk for LLMs and agents: SR 11-7 model risk management extended to LLMs and agents, with validation evidence and documentation checked by several models.
-- DORA and EU AI Act readiness: AI agents and AI vendors mapped to DORA ICT-risk requirements and EU AI Act obligations, with the evidence attached.
-- AI-assisted engineering that passes audit: Engineering teams use AI coding tools while the pipeline records change requests, evidence and approvals.
-- Agents grounded in governed knowledge: Agents answer from a validated knowledge graph of your products, policies and systems.
-
-### Which regulations apply to AI agents in financial services?
-
-Usually several. In the US that includes model risk guidance such as SR 11-7 and SOX controls over financial reporting. PCI DSS applies wherever card data is involved, DORA sets ICT risk rules for EU financial entities, and the EU AI Act covers AI systems used in the EU. All of them assume you can show what a system did and who was accountable for it.
-
-### How can banks use AI agents safely?
-
-By keeping execution and authority separate. Agents prepare and carry out work, but each consequential action, such as a payment, needs a signed approval from a named person. The approval covers the exact parameters, expires quickly and can be revoked; it is checked before execution and recorded.
-
----
-
-## Industry: AI for manufacturing
-
-Source: https://ailabconsulting.com/industries/manufacturing/
-
-In manufacturing, AI earns its keep on problems that repeat many times a day, such as unplanned stops and defects that reach customers. The usual tools are machine learning on sensor and maintenance data, computer vision on the line, and language models over technical documentation.
-
-Most plants already collect the data these need. A first project is typically a proof of concept on one line or one class of equipment, measured against current downtime or scrap rates before it is extended.
-
-### Use cases
-
-- Predictive maintenance: Forecast equipment failures from sensor and maintenance data, so repairs can be scheduled before a breakdown.
-- Visual quality control: Detect wrong labels, surface defects, wrong shapes and incorrect orientation on the line.
-- Safety monitoring: Check that personal protective equipment is worn, and alert a supervisor when it isn't.
-- Maintenance assistant: Technicians ask questions and get answers from manuals, work orders and past repairs, with sources.
-
-### How is AI used in manufacturing?
-
-The common uses are predictive maintenance, which forecasts equipment failures from sensor data; computer vision for quality control on the line; safety monitoring that detects missing protective equipment; and language-model assistants that answer technicians' questions from manuals and maintenance history.
-
----
-
-## Industry: AI for retail and e-commerce
-
-Source: https://ailabconsulting.com/industries/retail/
-
-Most retail AI comes down to forecasting demand and setting prices well, across more products and stores than a planning team can handle by hand. Generative AI has added product content and customer conversations to that list.
-
-Retailers hold a lot of usable data in transactions, inventory, web behavior and product catalogs. We usually start with whichever decision ties up the most money, often inventory or pricing, and test the improvement on historical data before anything goes live.
-
-### Use cases
-
-- Demand forecasting: Store- and SKU-level demand predictions for planning and replenishment.
-- Pricing optimization: Prices set from forecast demand, and promotions timed to it.
-- Targeted marketing: Find the customers with the highest lifetime value and reach them first.
-- Product content: Draft product descriptions and attributes for a merchandiser to check.
-- Shopping assistants: Assistants that answer product questions from your catalog.
-
-### How is AI used in retail?
-
-Retailers use AI to forecast demand by store and product, set prices and time promotions, target marketing at high-value customers, draft product content, and run shopping assistants that answer from the product catalog.
-
----
-
-## Cross-industry use cases
-
-- Agent governance assessments: Find out what your AI agents can do and who approves their actions.
-- Governed AI agents: Agents that work across your systems, with each consequential action approved by a named person.
-- Decision lineage: A linked record of each agent action's inputs, policy checks and approvals.
-- Compliant AI-assisted engineering: AI coding tools, with change requests and approvals recorded by the pipeline.
-- Knowledge-graph grounding: Agents and RAG applications that answer from a validated knowledge graph.
-- Adversarial document review: Multi-model review of specs, policies, model documentation and code before sign-off.
+Laguna Beach, California. We work with clients remotely.
