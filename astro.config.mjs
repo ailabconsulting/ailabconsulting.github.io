@@ -5,55 +5,38 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://ailabconsulting.com',
   trailingSlash: 'always',
-  // The whole stylesheet is ~10 KB; inlining removes the only render-blocking request.
+  // The whole stylesheet is a few KB; inlining removes the only render-blocking request.
   build: { inlineStylesheets: 'always' },
-  // Straight quotes everywhere: Markdown and .astro copy should match.
-  markdown: { smartypants: false },
-  // Pages merged or removed when the site was simplified; keep old links working.
+  // The site is a single page. Older URLs point at its sections.
   redirects: {
+    '/about/': '/#about',
+    '/contact/': '/#contact',
     '/process/': '/#how',
+    '/services/': '/#services',
+    '/services/governance-assessment/': '/#services',
+    '/services/agent-authorization/': '/#services',
+    '/services/ai-assisted-sdlc/': '/#services',
+    '/services/fractional-ai-leadership/': '/#services',
+    '/services/context-engineering/': '/#services',
+    '/services/adversarial-review/': '/#services',
+    '/services/ai-engineering/': '/#services',
     '/industries/': '/',
     '/industries/financial-services/': '/',
     '/industries/manufacturing/': '/',
     '/industries/retail/': '/',
-    '/services/context-engineering/': '/services/agent-authorization/',
-    '/services/adversarial-review/': '/services/ai-assisted-sdlc/',
-    '/services/ai-engineering/': '/services/',
   },
   integrations: [sitemap()],
   fonts: [
     {
       provider: fontProviders.local(),
-      name: 'Newsreader',
-      cssVariable: '--font-display',
-      fallbacks: ['Georgia', 'serif'],
-      options: {
-        variants: [
-          {
-            src: ['@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2'],
-            weight: '200 800',
-            style: 'normal',
-          },
-          {
-            src: ['@fontsource-variable/newsreader/files/newsreader-latin-wght-italic.woff2'],
-            weight: '200 800',
-            style: 'italic',
-          },
-        ],
-      },
-    },
-    {
-      provider: fontProviders.local(),
-      name: 'Inter',
-      cssVariable: '--font-body',
+      name: 'IBM Plex Sans',
+      cssVariable: '--font-sans',
       fallbacks: ['system-ui', 'sans-serif'],
       options: {
         variants: [
-          {
-            src: ['@fontsource-variable/inter/files/inter-latin-wght-normal.woff2'],
-            weight: '100 900',
-            style: 'normal',
-          },
+          { src: ['@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2'], weight: 400, style: 'normal' },
+          { src: ['@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-500-normal.woff2'], weight: 500, style: 'normal' },
+          { src: ['@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2'], weight: 600, style: 'normal' },
         ],
       },
     },

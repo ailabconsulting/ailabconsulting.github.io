@@ -1,26 +1,21 @@
-// schema.org JSON-LD builders. Every page emits one @graph that links
-// Organization → WebSite → WebPage (→ BreadcrumbList, Service, FAQ) by @id,
-// which is what search engines and answer engines use to understand who we are.
+// schema.org JSON-LD for the site: Organization → WebSite → WebPage, plus one
+// Service node per service. Search engines and answer engines read this.
 import { site } from '../data/site';
-import type { Faq } from '../data/faqs';
+import { services } from '../data/services';
 
-export const ORG_ID = `${site.url}/#organization`;
-export const WEBSITE_ID = `${site.url}/#website`;
-
-export type Crumb = { name: string; href: string };
-export type PageType = 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage';
+const ORG_ID = `${site.url}/#organization`;
+const WEBSITE_ID = `${site.url}/#website`;
 type Node = Record<string, unknown>;
 
 const abs = (path: string) => new URL(path, site.url).href;
 
-export function organization(): Node {
+function organization(): Node {
   return {
     '@type': ['Organization', 'ProfessionalService'],
     '@id': ORG_ID,
     name: site.name,
     url: abs('/'),
     description: site.description,
-    slogan: site.tagline,
     logo: { '@type': 'ImageObject', url: abs('/logo.png'), width: 512, height: 512 },
     image: abs('/og.png'),
     email: site.email,
@@ -33,91 +28,38 @@ export function organization(): Node {
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'sales',
-      email: site.email,
-      telephone: site.phone,
-      availableLanguage: 'English',
-    },
     knowsAbout: site.topics,
     ...(site.sameAs.length ? { sameAs: site.sameAs } : {}),
   };
 }
 
-export function website(): Node {
-  return {
-    '@type': 'WebSite',
-    '@id': WEBSITE_ID,
-    url: abs('/'),
-    name: site.name,
-    description: site.description,
-    publisher: { '@id': ORG_ID },
-    inLanguage: 'en-US',
-  };
-}
-
-export function webPage(opts: {
-  path: string;
-  title: string;
-  description: string;
-  type?: PageType;
-  crumbs?: Crumb[];
-  faqs?: Faq[];
-}): Node[] {
+export function graph(opts: { path: string; title: string; description: string; withServices?: boolean }) {
   const url = abs(opts.path);
-  const types: string[] = [opts.type ?? 'WebPage'];
-  if (opts.faqs?.length) types.push('FAQPage');
-
-  const page: Node = {
-    '@type': types.length === 1 ? types[0] : types,
-    '@id': `${url}#webpage`,
-    url,
-    name: opts.title,
-    description: opts.description,
-    isPartOf: { '@id': WEBSITE_ID },
-    about: { '@id': ORG_ID },
-    inLanguage: 'en-US',
-  };
-  const nodes: Node[] = [page];
-
-  if (opts.faqs?.length) {
-    page.mainEntity = opts.faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    }));
+  const nodes: Node[] = [
+    organization(),
+    { '@type': 'WebSite', '@id': WEBSITE_ID, url: abs('/'), name: site.name, publisher: { '@id': ORG_ID }, inLanguage: 'en-US' },
+    {
+      '@type': 'WebPage',
+      '@id': `${url}#webpage`,
+      url,
+      name: opts.title,
+      description: opts.description,
+      isPartOf: { '@id': WEBSITE_ID },
+      about: { '@id': ORG_ID },
+      inLanguage: 'en-US',
+    },
+  ];
+  if (opts.withServices) {
+    for (const s of services) {
+      nodes.push({
+        '@type': 'Service',
+        '@id': abs(`/#${s.id}`),
+        name: s.name,
+        description: s.text,
+        provider: { '@id': ORG_ID },
+        areaServed: 'Financial services',
+      });
+    }
   }
-
-  if (opts.crumbs?.length) {
-    page.breadcrumb = { '@id': `${url}#breadcrumb` };
-    const trail = [{ name: 'Home', href: '/' }, ...opts.crumbs];
-    nodes.push({
-      '@type': 'BreadcrumbList',
-      '@id': `${url}#breadcrumb`,
-      itemListElement: trail.map((c, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: c.name,
-        item: abs(c.href),
-      })),
-    });
-  }
-
-  return nodes;
-}
-
-export function service(opts: { path: string; name: string; description: string; audience?: string }): Node {
-  const url = abs(opts.path);
-  return {
-    '@type': 'Service',
-    '@id': `${url}#service`,
-    name: opts.name,
-    serviceType: opts.name,
-    description: opts.description,
-    url,
-    provider: { '@id': ORG_ID },
-    mainEntityOfPage: { '@id': `${url}#webpage` },
-    ...(opts.audience ? { audience: { '@type': 'BusinessAudience', name: opts.audience } } : {}),
-  };
+  return { '@context': 'https://schema.org', '@graph': nodes };
 }

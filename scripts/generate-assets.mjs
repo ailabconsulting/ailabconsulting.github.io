@@ -11,7 +11,7 @@ const root = fileURLToPath(new URL('..', import.meta.url));
 const pub = (f) => `${root}public/${f}`;
 
 // Full-bleed square mark (Apple touch icon, schema.org logo).
-const square = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="#141a17"/><g transform="translate(4.8 4.8) scale(0.7)"><circle cx="11" cy="21" r="4" fill="none" stroke="#fcfdfb" stroke-width="2.2"/><path d="M13.9 18.1 17.6 14.4" stroke="#fcfdfb" stroke-width="2.2"/><rect x="17" y="7" width="8" height="8" fill="#8fa6f0"/></g></svg>`;
+const square = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" fill="#141a17"/><g transform="translate(4.8 4.8) scale(0.7)"><circle cx="11" cy="21" r="4" fill="none" stroke="#ffffff" stroke-width="2.2"/><path d="M13.9 18.1 17.6 14.4" stroke="#ffffff" stroke-width="2.2"/><rect x="17" y="7" width="8" height="8" fill="#8fa6f0"/></g></svg>`;
 const favicon = readFileSync(pub('favicon.svg'));
 
 await sharp(Buffer.from(square), { density: 1200 }).resize(180, 180).png().toFile(pub('apple-touch-icon.png'));

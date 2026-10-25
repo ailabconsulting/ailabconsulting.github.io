@@ -5,20 +5,14 @@
     <meta charset="utf-8" />
     <style>
       @font-face {
-        font-family: 'Newsreader';
-        src: url('../node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2') format('woff2');
-        font-weight: 200 800;
+        font-family: 'IBM Plex Sans';
+        src: url('../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2') format('woff2');
+        font-weight: 400;
       }
       @font-face {
-        font-family: 'Newsreader';
-        src: url('../node_modules/@fontsource-variable/newsreader/files/newsreader-latin-opsz-italic.woff2') format('woff2');
-        font-weight: 200 800;
-        font-style: italic;
-      }
-      @font-face {
-        font-family: 'Inter';
-        src: url('../node_modules/@fontsource-variable/inter/files/inter-latin-opsz-normal.woff2') format('woff2');
-        font-weight: 100 900;
+        font-family: 'IBM Plex Sans';
+        src: url('../node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-600-normal.woff2') format('woff2');
+        font-weight: 600;
       }
       html,
       body {
@@ -32,79 +26,43 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 72px 80px 64px;
-        background: #fcfdfb;
-        color: #141a17;
-        font-family: 'Inter', sans-serif;
+        padding: 80px;
+        background: #ffffff;
+        color: #1b1d21;
+        font-family: 'IBM Plex Sans', sans-serif;
+        border-top: 12px solid #12406e;
       }
-      .eyebrow {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-        font-size: 20px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: #58625c;
-      }
-      .eyebrow::before {
-        content: '';
-        width: 40px;
-        height: 1.5px;
-        background: currentColor;
-      }
-      h1 {
-        margin: 28px 0 0;
-        max-width: 900px;
-        font-family: 'Newsreader', serif;
-        font-size: 96px;
-        font-weight: 350;
-        line-height: 1;
-        letter-spacing: -0.025em;
-      }
-      h1 em {
-        color: #1f3a8a;
-        white-space: nowrap;
-      }
-      .foot {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 28px;
-        border-top: 1.5px solid #141a17;
-      }
-      .logo {
+      .brand {
         display: flex;
         align-items: center;
         gap: 14px;
-        font-family: 'Newsreader', serif;
-        font-size: 34px;
-        font-weight: 500;
+        font-size: 30px;
+        font-weight: 600;
       }
-      .logo i {
-        font-weight: 300;
+      h1 {
+        margin: 0;
+        max-width: 900px;
+        font-size: 64px;
+        font-weight: 600;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
       }
       .url {
-        font-size: 22px;
-        color: #58625c;
+        font-size: 26px;
+        color: #5b616b;
       }
     </style>
   </head>
   <body>
-    <div>
-      <div class="eyebrow">AI governance for financial services</div>
-      <h1>AI agents that hold up <em>in an audit</em></h1>
+    <div class="brand">
+      <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true">
+        <circle cx="7" cy="17" r="4" fill="none" stroke="#1b1d21" stroke-width="2"></circle>
+        <path d="M9.9 14.1 13.6 10.4" stroke="#1b1d21" stroke-width="2"></path>
+        <rect x="13" y="3" width="8" height="8" fill="#12406e"></rect>
+      </svg>
+      AI Lab Consulting
     </div>
-    <div class="foot">
-      <div class="logo">
-        <svg viewBox="0 0 24 24" width="40" height="40" aria-hidden="true">
-          <circle cx="7" cy="17" r="4" fill="none" stroke="#141a17" stroke-width="2"></circle>
-          <path d="M9.9 14.1 13.6 10.4" stroke="#141a17" stroke-width="2"></path>
-          <rect x="13" y="3" width="8" height="8" fill="#1f3a8a"></rect>
-        </svg>
-        <span>AI Lab <i>Consulting</i></span>
-      </div>
-      <div class="url">ailabconsulting.com</div>
-    </div>
+    <h1>AI governance for banks, insurers and fintechs</h1>
+    <div class="url">ailabconsulting.com</div>
   </body>
 </html>

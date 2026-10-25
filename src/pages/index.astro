@@ -1,251 +1,381 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ServiceIndex from '../components/ServiceIndex.astro';
-import FaqList from '../components/FaqList.astro';
-import CtaBand from '../components/CtaBand.astro';
-import HeroArt from '../components/HeroArt.astro';
 import { site } from '../data/site';
-import { faqs } from '../data/faqs';
-import { process } from '../data/process';
-
-const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
-
-const outcomes = [
-  {
-    title: 'Agents in production sooner',
-    text: 'Controls are part of the design, so risk and compliance can sign off without a rebuild.',
-  },
-  {
-    title: 'A named approver for every consequential action',
-    text: 'Approvals are tied to the exact action and checked before it runs.',
-  },
-  {
-    title: 'Answers for examiners',
-    text: 'Who approved what, and on what basis, is a query. Controls map to SR 11-7, SOX, DORA and the EU AI Act.',
-  },
-];
+import { services } from '../data/services';
 ---
 
-<BaseLayout description={site.metaDescription} faqs={faqs}>
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow">AI governance for financial services</p>
-        <h1>AI agents that hold up <em>in an audit</em></h1>
-        <p class="lede">
-          We help banks, credit unions, insurers and fintechs put AI agents into production, with the approvals and
-          records examiners expect.
-        </p>
-        <div class="actions">
-          <a href="/contact/" class="btn btn-primary">Book a call <span class="arrow" aria-hidden="true">→</span></a>
-          <a href="/services/" class="link-arrow">See services</a>
-        </div>
+<BaseLayout description={site.metaDescription} withServices>
+  <div class="container top">
+    <section class="intro" aria-labelledby="intro-title">
+      <h1 id="intro-title">AI governance for banks, insurers and fintechs</h1>
+      <p class="lead">
+        We help financial firms put AI agents into production with the controls their examiners and auditors expect.
+        Every consequential action an agent takes has a named approver and a record, and the controls map to SR 11-7,
+        SOX, DORA and the EU AI Act.
+      </p>
+      <p class="cta">
+        <a class="button" href="#contact">Contact us</a>
+        <span class="muted">or email <a href={`mailto:${site.email}`}>{site.email}</a></span>
+      </p>
+    </section>
+
+    <section id="services" class="services" aria-labelledby="services-title">
+      <h2 id="services-title">Services</h2>
+      <dl>
+        {
+          services.map((s) => (
+            <div id={s.id}>
+              <dt>{s.name}</dt>
+              <dd>{s.text}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="aside">
+        We also build agent platforms, LLM applications and machine learning systems, including for manufacturing and
+        retail.
+      </p>
+    </section>
+
+    <div class="more">
+    <section id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How engagements work</h2>
+      <p>
+        Engagements start with a fixed-scope assessment of your agents and controls. If you continue, we build the
+        controls with your team on one workflow first, then extend them and hand over the documentation and evidence. You
+        can stop after any step.
+      </p>
+    </section>
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About us</h2>
+      <p>
+        AI Lab Consulting is a small senior team with backgrounds in enterprise architecture and compliance at regulated
+        financial firms. We design and build controls; legal interpretation and attestation stay with your compliance
+        team and auditors.
+      </p>
+    </section>
+    </div>
+  </div>
+
+  <section id="contact" class="container band contact" aria-labelledby="contact-title">
+    <div>
+      <h2 id="contact-title">Contact</h2>
+      <p>Tell us which AI agents you run or plan to run, and we'll set up a call.</p>
+      <p class="details">
+        <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a><br />
+        <span class="muted">{`${site.address.street}, ${site.address.locality}, ${site.address.region} ${site.address.postalCode}`}</span>
+      </p>
+    </div>
+
+    <form
+      class="contact-form"
+      method="POST"
+      action={site.formEndpoint}
+      data-sitekey={site.recaptchaSiteKey}
+      data-email={site.email}
+    >
+      <div class="row">
+        <label>Name <input name="name" type="text" autocomplete="name" required /></label>
+        <label>Work email <input name="email" type="email" autocomplete="email" required /></label>
       </div>
-      <HeroArt />
-    </div>
+      <label><span>Company <span class="muted">(optional)</span></span> <input name="company" type="text" autocomplete="organization" /></label>
+      <label>Message <textarea name="message" rows="4" required></textarea></label>
+      <input type="hidden" name="page" value="/" />
+      <div class="hp" aria-hidden="true">
+        <label>Leave this field empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <div class="captcha"></div>
+      <div class="submit">
+        <button class="button" type="submit">Send</button>
+        <p class="fineprint muted">
+          Protected by reCAPTCHA. Google's <a href="https://policies.google.com/privacy">Privacy Policy</a> and{' '}
+          <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </p>
+      </div>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
   </section>
-
-  <section class="section section--sunk" aria-labelledby="value-title">
-    <div class="container">
-      <h2 id="value-title" class="h2">What you get</h2>
-      <ul class="outcomes">
-        {
-          outcomes.map((o) => (
-            <li>
-              <h3>{o.title}</h3>
-              <p>{o.text}</p>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <section class="section" id="services" aria-labelledby="services-title">
-    <div class="container">
-      <h2 id="services-title" class="h2">Services</h2>
-      <ServiceIndex {services} />
-      <p class="note">
-        We also build agent platforms, LLM applications and machine learning systems.{' '}
-        <a href="/contact/">Talk to us</a>
-      </p>
-    </div>
-  </section>
-
-  <section class="section section--sunk" id="how" aria-labelledby="how-title">
-    <div class="container">
-      <h2 id="how-title" class="h2">How we work</h2>
-      <p class="intro">
-        A small senior team with backgrounds in enterprise architecture and compliance at regulated financial firms.
-        You decide after each step whether to continue.
-      </p>
-      <ol class="steps">
-        {
-          process.map((s, i) => (
-            <li>
-              <span class="num">{i + 1}</span>
-              <h3>{s.title}</h3>
-              <p>{s.text}</p>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-
-  <section class="section" id="faq" aria-labelledby="faq-title">
-    <div class="container split">
-      <h2 id="faq-title" class="h2">Questions</h2>
-      <FaqList {faqs} />
-    </div>
-  </section>
-
-  <CtaBand />
 </BaseLayout>
 
+<script>
+  // Without JS the form posts straight to Getform. With JS, invisible reCAPTCHA
+  // loads on first interaction and the form submits in place.
+  type Grecaptcha = {
+    render(el: Element, opts: Record<string, unknown>): number;
+    execute(id: number): void;
+    reset(id: number): void;
+  };
+  declare global {
+    interface Window {
+      grecaptcha?: Grecaptcha;
+      __onRecaptchaLoad?: () => void;
+    }
+  }
+
+  const form = document.querySelector<HTMLFormElement>('form.contact-form');
+  if (form) {
+    const status = form.querySelector<HTMLElement>('.status')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    let widgetId: number | undefined;
+    let ready: Promise<void> | undefined;
+
+    const loadCaptcha = () =>
+      (ready ??= new Promise<void>((resolve, reject) => {
+        window.__onRecaptchaLoad = () => {
+          widgetId = window.grecaptcha!.render(form.querySelector('.captcha')!, {
+            sitekey: form.dataset.sitekey,
+            size: 'invisible',
+            callback: () => send(),
+          });
+          resolve();
+        };
+        const s = document.createElement('script');
+        s.src = 'https://www.google.com/recaptcha/api.js?onload=__onRecaptchaLoad&render=explicit';
+        s.async = true;
+        s.onerror = () => reject(new Error('reCAPTCHA failed to load'));
+        document.head.append(s);
+      }));
+
+    form.addEventListener('focusin', () => loadCaptcha().catch(() => {}), { once: true });
+
+    const setStatus = (text: string, kind: 'ok' | 'error' | '') => {
+      status.textContent = text;
+      status.dataset.kind = kind;
+    };
+
+    async function send() {
+      try {
+        const res = await fetch(form!.action, {
+          method: 'POST',
+          body: new URLSearchParams(new FormData(form!) as unknown as Record<string, string>),
+          headers: { Accept: 'application/json' },
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        form!.reset();
+        setStatus("Thank you. We've received your message and will reply to set up a call.", 'ok');
+      } catch {
+        setStatus(`Sorry, the message could not be sent. Please email ${form!.dataset.email}.`, 'error');
+      } finally {
+        button.disabled = false;
+        if (widgetId !== undefined) window.grecaptcha?.reset(widgetId);
+      }
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      button.disabled = true;
+      setStatus('Sending...', '');
+      try {
+        await loadCaptcha();
+        window.grecaptcha!.execute(widgetId!);
+      } catch {
+        await send();
+      }
+    });
+  }
+</script>
+
 <style>
-  .hero {
-    padding-block: clamp(3rem, 8vw, 6.5rem);
-  }
-
-  .hero-grid {
+  .top {
     display: grid;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .hero-grid > :global(.hero-art) {
-    display: none;
-  }
-
-  @media (min-width: 60rem) {
-    .hero-grid {
-      grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-    }
-    .hero-grid > :global(.hero-art) {
-      display: block;
-      justify-self: end;
-    }
-  }
-
-  h1 em {
-    white-space: nowrap;
-  }
-
-  h1 {
-    margin-top: 1.5rem;
-    max-width: 14ch;
-    font-size: var(--step-5);
-    font-weight: 350;
-    line-height: 1.02;
-    letter-spacing: -0.025em;
-  }
-
-  .hero .lede {
-    margin-top: 1.75rem;
-    max-width: 34rem;
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.75rem;
-    margin-top: 2.25rem;
-  }
-
-  .h2 {
-    font-size: var(--step-4);
-    margin-bottom: clamp(2rem, 4vw, 3rem);
-  }
-
-  .outcomes {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0 2.5rem;
-  }
-
-  @media (min-width: 56rem) {
-    .outcomes {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  .outcomes li {
-    display: grid;
-    gap: 0.6rem;
-    align-content: start;
-    padding: 1.5rem 0 2rem;
-    border-top: 1px solid var(--ink);
-  }
-
-  .outcomes h3 {
-    font-size: var(--step-2);
-  }
-
-  .outcomes p,
-  .steps p,
-  .intro,
-  .note {
-    color: var(--ink-soft);
-  }
-
-  .note {
-    margin-top: 1.75rem;
-  }
-
-  .note a {
-    color: var(--ink);
-    font-weight: 500;
-    text-underline-offset: 0.2em;
+    gap: 2.5rem;
+    padding-block: var(--space);
   }
 
   .intro {
-    max-width: 40rem;
-    margin: -1rem 0 2.5rem;
-    font-size: var(--step-1);
-    line-height: 1.5;
+    grid-area: intro;
   }
 
-  .steps {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .services {
+    grid-area: services;
+  }
+
+  .more {
+    grid-area: more;
     display: grid;
-    gap: 0 2.5rem;
-  }
-
-  @media (min-width: 48rem) {
-    .steps {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  .steps li {
-    display: grid;
-    gap: 0.5rem;
-    align-content: start;
-    padding: 1.25rem 0 2rem;
+    gap: 1.75rem;
+    padding-top: 1.75rem;
     border-top: 1px solid var(--rule);
   }
 
-  .num {
-    font-family: var(--font-display);
-    font-size: var(--step-3);
-    line-height: 1;
-    color: var(--accent);
+  .top {
+    grid-template-areas: 'intro' 'services' 'more';
   }
 
-  .steps h3 {
-    font-size: var(--step-2);
-  }
-
-  @media (min-width: 60rem) {
-    #faq .split {
-      grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  @media (min-width: 56rem) {
+    .top {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      grid-template-areas:
+        'intro services'
+        'more services';
+      grid-template-rows: auto 1fr;
+      column-gap: 4rem;
+      row-gap: 2.5rem;
+      align-items: start;
     }
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 1.35rem + 1.9vw, 2.6rem);
+    letter-spacing: -0.01em;
+  }
+
+  .lead {
+    margin-top: 1.25rem;
+    font-size: 1.15rem;
+    max-width: 36rem;
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .services dl > div {
+    padding-block: 0.85rem;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 1rem;
+  }
+
+  .services dt {
+    font-weight: 600;
+  }
+
+  .services dd {
+    margin-top: 0.15rem;
+    color: #3d424a;
+  }
+
+  .aside {
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .band {
+    padding-block: var(--space);
+    border-top: 1px solid var(--rule);
+  }
+
+  .more p {
+    color: #3d424a;
+    max-width: 36rem;
+  }
+
+  .contact {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 56rem) {
+    .contact {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 4rem;
+    }
+  }
+
+  .details {
+    margin-top: 1rem;
+    line-height: 1.8;
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .row {
+    display: grid;
+    gap: 1rem;
+  }
+
+  @media (min-width: 36rem) {
+    .row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  label {
+    display: grid;
+    gap: 0.3rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  label .muted {
+    font-weight: 400;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--field);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    font-weight: 400;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 0;
+    border-color: var(--accent);
+  }
+
+  .hp {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  button[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .fineprint {
+    flex: 1 1 14rem;
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .status[data-kind='ok'] {
+    color: #1b6b43;
+  }
+
+  .status[data-kind='error'] {
+    color: #a3261b;
+  }
+
+  /* Attribution is in the fine print, so the badge can be hidden (visibility, not display). */
+  .captcha :global(.grecaptcha-badge) {
+    visibility: hidden;
   }
 </style>

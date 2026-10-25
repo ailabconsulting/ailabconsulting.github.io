@@ -16,18 +16,19 @@ npm run preview  # serve dist/
 
 ## Where things live
 
+The site is a single page.
+
 | What | Where |
 | --- | --- |
-| Company facts (address, phone, form endpoint, GA4 ID, social links) | `src/data/site.ts` |
-| Services, one Markdown file each | `src/content/services/` |
-| Home page FAQ and the "How we work" steps | `src/data/` |
-| Design tokens (colors, type scale) | `src/styles/global.css` |
+| Page copy and layout | `src/pages/index.astro` |
+| Services (name and one sentence each) | `src/data/services.ts` |
+| Company facts (contact details, form endpoint, GA4 ID) | `src/data/site.ts` |
+| Colors and type | `src/styles/global.css` |
 | Structured data (schema.org JSON-LD) | `src/lib/schema.ts` |
-| `robots.txt`, `llms.txt`, `llms-full.txt` | `src/pages/*.txt.ts`, built from the content above |
+| `robots.txt`, `llms.txt` | `src/pages/*.txt.ts` |
+| Redirects from older URLs | `astro.config.mjs` |
 
-Adding a service is just a new Markdown file: its page, the services list, footer, sitemap, structured data and `llms.txt` pick it up automatically. Keep copy short: one paragraph and four deliverables per service.
-
-Redirects for pages removed in the October 2026 simplification are in `astro.config.mjs`.
+Keep copy short and plain: no slogans, one sentence per service.
 
 ## Brand assets
 

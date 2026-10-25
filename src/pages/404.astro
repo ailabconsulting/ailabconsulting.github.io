@@ -3,31 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Page not found" description="The page you were looking for does not exist." noindex>
-  <section class="section">
-    <div class="container">
-      <p class="eyebrow">404</p>
-      <h1>We couldn't find that page.</h1>
-      <div class="actions">
-        <a href="/" class="btn btn-primary">Go to the home page</a>
-        <a href="/services/" class="link-arrow">Browse services <span class="arrow" aria-hidden="true">→</span></a>
-      </div>
-    </div>
+  <section class="container nf">
+    <h1>Page not found</h1>
+    <p>This address doesn't exist. <a href="/">Go to the home page</a>.</p>
   </section>
 </BaseLayout>
 
 <style>
-  h1 {
-    margin-top: 1.5rem;
-    max-width: 18ch;
-    font-size: var(--step-5);
-    font-weight: 350;
-    line-height: 1.04;
+  .nf {
+    padding-block: var(--space);
   }
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.75rem;
-    margin-top: 2.5rem;
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
   }
 </style>
